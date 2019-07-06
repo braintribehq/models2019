@@ -1,0 +1,26 @@
+operation getSuperTypesString(row : Row) : String {
+
+	var supertypesPaths = row.subTypeOf.split(",").asOrderedSet();
+	var supertypesNames : Sequence;
+	var supertypesString = "";
+	
+	if(debug) supertypesPaths.errln("SuperTypes");
+	
+	for (supertype in supertypesPaths) { 
+		var name = supertype.split("/").last();
+		if(debug) name.errln("SuperType Name: ");
+		supertypesNames.add(name);
+	}
+	
+	for (name in supertypesNames) { 
+		supertypesString += ", ";
+		supertypesString += name;	
+	}
+	if(supertypesString==", ") supertypesString= "";
+	return supertypesString;
+}
+
+operation getProperties(row : Row) : Sequence {
+	var propertiesPaths = row.properties.split(",");
+	return propertiesPaths;
+}

@@ -1,0 +1,562 @@
+//type mappings
+
+//XSD TS Specific - Not Domain Specific
+operation XsdType2JavaPrimitiveType() : Map{
+	var mappings : Map;
+	
+	mappings.put("AnySimpleType","java.lang.String");
+	mappings.put("AnyURI","java.lang.String");
+	mappings.put("Base64Binary","java.lang.String");
+	mappings.put("Boolean","java.lang.Boolean");
+	mappings.put("Byte","java.lang.String");
+	mappings.put("Date","java.util.Date");
+	mappings.put("DateTime","java.util.Date");
+	mappings.put("Decimal","java.lang.Double");
+	mappings.put("Double","java.lang.Double");
+	mappings.put("Duration","java.lang.String");
+	mappings.put("ENTITIES","java.util.List");
+	mappings.put("ENTITY","java.lang.String");
+	mappings.put("Float","java.lang.Float");
+	mappings.put("GDay","java.lang.String");
+	mappings.put("GMonth","java.lang.String");
+	mappings.put("GMonthDay","java.lang.String");
+	mappings.put("GYear","java.lang.String");
+	mappings.put("GYearMonth","java.lang.String");
+	mappings.put("HexBinary","java.lang.String");
+	mappings.put("ID","java.lang.String");
+	mappings.put("IDREF","java.lang.String");
+	mappings.put("IDREFS","java.util.List");
+	mappings.put("Int","java.lang.Integer");
+	mappings.put("Integer","java.lang.Integer");
+	mappings.put("Language","java.lang.String");
+	mappings.put("Long","java.lang.Double");
+	mappings.put("Name","java.lang.String");
+	mappings.put("NCName","java.lang.String");
+	mappings.put("NegativeInteger","java.lang.Integer");
+	mappings.put("NMToken","java.lang.String");
+	mappings.put("NMTOKENS","java.util.List");
+	mappings.put("NonNegativeInteger","java.lang.Integer");
+	mappings.put("NonPositiveInteger","java.lang.Integer");
+	mappings.put("NormalizedString","java.lang.String");
+	mappings.put("NOTATION","java.lang.String");
+	mappings.put("PositiveInteger","java.lang.Integer");
+	mappings.put("QName","java.lang.Integer");
+	mappings.put("Short","java.lang.Double");
+	mappings.put("String","java.lang.String");
+	mappings.put("Time","java.lang.String");
+	mappings.put("Token","java.lang.String");
+	mappings.put("UnsignedByte","java.lang.String");
+	mappings.put("UnsignedInt","java.lang.Integer");
+	mappings.put("UnsignedLong","java.lang.Double");
+	mappings.put("UnsignedShort","java.lang.Double");
+
+	return mappings;
+}
+
+
+//Ecore TS Specific - Not Domain Specific
+operation convert2CompatibleJavaType(type : String): String {
+	
+	var debug : Boolean = false;
+	
+	var tfType = convert2TfType(type); //B
+	var javaType = convertTfType2JavaType(tfType); //C
+	
+	if(debug) "JavaType obtained from the TfType".errln();
+	
+	return javaType;
+}
+
+operation convert2TfType(type : String): String {
+	var debug : Boolean = false;
+	
+	var result = null;
+	var mappings : Map;
+	
+	//two step mapping that can be reduced to one
+	mappings = createTfTypeMappings(); //D
+	if(mappings.containsKey(type)) {
+		result = mappings.get(type);
+	}
+	else
+		result = "";
+		
+	return result;
+}
+
+operation createTfTypeMappings(){
+	var mappings : Map;
+	
+	mappings.put("java.math.BigDecimal","SimpleTypes.TYPE_DECIMAL"); 	//SimpleTypes.TYPE_DECIMAL
+	mappings.put("java.math.BigInteger","SimpleTypes.TYPE_INTEGER"); 	//SimpleTypes.TYPE_DECIMAL
+	mappings.put("boolean","SimpleTypes.TYPE_BOOLEAN");					//SimpleTypes.TYPE_BOOLEAN
+	mappings.put("java.lang.Boolean","SimpleTypes.TYPE_BOOLEAN");  		//SimpleTypes.TYPE_BOOLEAN
+	mappings.put("byte","SimpleTypes.TYPE_INTEGER");					//SimpleTypes.TYPE_INTEGER
+	mappings.put("byte[]","SimpleTypes.TYPE_STRING");					//SimpleTypes.TYPE_STRING
+	mappings.put("byte[]","SimpleTypes.TYPE_STRING");					//SimpleTypes.TYPE_STRING
+	mappings.put("java.lang.Byte","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("char","SimpleTypes.TYPE_STRING"); 					//SimpleTypes.TYPE_STRING
+	mappings.put("java.lang.Character","SimpleTypes.TYPE_STRING"); 		//SimpleTypes.TYPE_STRING
+	mappings.put("java.util.Date","SimpleTypes.TYPE_DATE");				//SimpleTypes.TYPE_DATE
+	mappings.put("org.eclipse.emf.common.util.DiagnosticChain","SimpleTypes.TYPE_STRING");	//SimpleTypes.TYPE_STRING
+	mappings.put("double","SimpleTypes.TYPE_DOUBLE");					//SimpleTypes.TYPE_DOUBLE
+	mappings.put("java.lang.Double","SimpleTypes.TYPE_DOUBLE");			//SimpleTypes.TYPE_DOUBLE
+	mappings.put("org.eclipse.emf.common.util.EList","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.common.util.Enumerator","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.ecore.util.FeatureMap","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.ecore.util.FeatureMap$Entry","SimpleTypes.TYPE_STRING");	//SimpleTypes.TYPE_STRING
+	mappings.put("float","SimpleTypes.TYPE_FLOAT");						//SimpleTypes.TYPE_FLOAT
+	mappings.put("java.lang.Float","SimpleTypes.TYPE_FLOAT");   		//SimpleTypes.TYPE_FLOAT
+	mappings.put("int","SimpleTypes.TYPE_INTEGER"); 					//SimpleTypes.TYPE_INTEGER
+	mappings.put("java.lang.Integer","SimpleTypes.TYPE_INTEGER");		//SimpleTypes.TYPE_INTEGER
+	mappings.put("java.lang.Class","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("java.lang.Object","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("long","SimpleTypes.TYPE_LONG"); 						//SimpleTypes.TYPE_LONG
+	mappings.put("java.lang.Long","SimpleTypes.TYPE_LONG");				//SimpleTypes.TYPE_LONG
+	mappings.put("java.util.Map","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.ecore.resource.Resource","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.ecore.resource.ResourceSet","SimpleTypes.TYPE_STRING");	//SimpleTypes.TYPE_STRING
+	mappings.put("short","SimpleTypes.TYPE_INTEGER");					//SimpleTypes.TYPE_INTEGER
+	mappings.put("java.lang.Short","SimpleTypes.TYPE_INTEGER");			//SimpleTypes.TYPE_INTEGER
+	mappings.put("java.lang.String","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("org.eclipse.emf.common.util.TreeIterator","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+
+	//Ecore Types 
+	mappings.put("EBigDecimal","SimpleTypes.TYPE_DECIMAL"); 	//SimpleTypes.TYPE_DECIMAL
+	mappings.put("EBigInteger","SimpleTypes.TYPE_DECIMAL"); 	//SimpleTypes.TYPE_DECIMAL
+	mappings.put("EBoolean","SimpleTypes.TYPE_BOOLEAN"); 		//SimpleTypes.TYPE_BOOLEAN
+	mappings.put("EBooleanObject","SimpleTypes.TYPE_BOOLEAN");  //SimpleTypes.TYPE_BOOLEAN
+	mappings.put("EByte","SimpleTypes.TYPE_INTEGER");			//SimpleTypes.TYPE_INTEGER
+	mappings.put("EByteArray","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EChar","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("ECharacterObject","SimpleTypes.TYPE_STRING"); //SimpleTypes.TYPE_STRING
+	mappings.put("EDate","SimpleTypes.TYPE_DATE");				//SimpleTypes.TYPE_DATE
+	mappings.put("EDiagnosticChain","SimpleTypes.TYPE_STRING");	//SimpleTypes.TYPE_STRING
+	mappings.put("EDouble","SimpleTypes.TYPE_DOUBLE");			//SimpleTypes.TYPE_DOUBLE
+	mappings.put("EDoubleObject","SimpleTypes.TYPE_DOUBLE");	//SimpleTypes.TYPE_DOUBLE
+	mappings.put("EList","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("EEnumerator","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EFeatureMap","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EFeatureMapEntry","SimpleTypes.TYPE_STRING");//SimpleTypes.TYPE_STRING
+	mappings.put("EEFeatureMapEntry","SimpleTypes.TYPE_STRING");//SimpleTypes.TYPE_STRING
+	mappings.put("EFloat","SimpleTypes.TYPE_FLOAT");			//SimpleTypes.TYPE_FLOAT
+	mappings.put("EFloatObject","SimpleTypes.TYPE_FLOAT");   	//SimpleTypes.TYPE_FLOAT
+	mappings.put("EInt","SimpleTypes.TYPE_INTEGER"); 			//SimpleTypes.TYPE_INTEGER
+	mappings.put("EIntegerObject","SimpleTypes.TYPE_INTEGER");	//SimpleTypes.TYPE_INTEGER
+	mappings.put("EJavaClass","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EJavaObject","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("ELong","SimpleTypes.TYPE_LONG"); 				//SimpleTypes.TYPE_LONG
+	mappings.put("ELongObject","SimpleTypes.TYPE_LONG");		//SimpleTypes.TYPE_LONG
+	mappings.put("EMap","SimpleTypes.TYPE_STRING");				//SimpleTypes.TYPE_STRING
+	mappings.put("EResource","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EResourceSet","SimpleTypes.TYPE_STRING");		//SimpleTypes.TYPE_STRING
+	mappings.put("EShort","SimpleTypes.TYPE_INTEGER");			//SimpleTypes.TYPE_INTEGER
+	mappings.put("EShortObject","SimpleTypes.TYPE_INTEGER");	//SimpleTypes.TYPE_INTEGER
+	mappings.put("EString","SimpleTypes.TYPE_STRING");			//SimpleTypes.TYPE_STRING
+	mappings.put("ETreeIterator","SimpleTypes.TYPE_STRING");	//SimpleTypes.TYPE_STRING
+
+	//XSDEcore.Types
+	mappings.put("Byte","SimpleTypes.TYPE_INTEGER");
+	mappings.put("Base64Binary","SimpleTypes.TYPE_STRING");
+	mappings.put("HexBinary","SimpleTypes.TYPE_STRING");
+	mappings.put("Double","SimpleTypes.TYPE_DOUBLE");
+	mappings.put("Float","SimpleTypes.TYPE_FLOAT");
+	mappings.put("Int","SimpleTypes.TYPE_INTEGER");
+	mappings.put("UnsignedShort","SimpleTypes.TYPE_INTEGER");
+	mappings.put("Boolean","SimpleTypes.TYPE_BOOLEAN");
+	mappings.put("AnySimpleType","SimpleTypes.TYPE_STRING");
+	mappings.put("Date","SimpleTypes.TYPE_DATE");
+	mappings.put("DateTime","SimpleTypes.TYPE_DATE");
+	mappings.put("Duration","SimpleTypes.TYPE_STRING");
+	mappings.put("GDay","SimpleTypes.TYPE_DATE");
+	mappings.put("GMonth","SimpleTypes.TYPE_DATE");
+	mappings.put("GMonthDay","SimpleTypes.TYPE_DATE");
+	mappings.put("GYear","SimpleTypes.TYPE_DATE");
+	mappings.put("GYearMonth","SimpleTypes.TYPE_DATE");	
+	mappings.put("NOTATION","SimpleTypes.TYPE_STRING");
+	mappings.put("QName","SimpleTypes.TYPE_STRING");
+	mappings.put("Time","SimpleTypes.TYPE_DATE");
+	mappings.put("AnyURI","SimpleTypes.TYPE_STRING");
+	mappings.put("ENTITY","SimpleTypes.TYPE_STRING");	
+	mappings.put("ID","SimpleTypes.TYPE_STRING");
+	mappings.put("IDREF","SimpleTypes.TYPE_STRING");
+	mappings.put("Language","SimpleTypes.TYPE_STRING");
+	mappings.put("Name","SimpleTypes.TYPE_STRING");	
+	mappings.put("NCName","SimpleTypes.TYPE_STRING");
+	mappings.put("NMToken","SimpleTypes.TYPE_STRING");
+	mappings.put("NormalizedString","SimpleTypes.TYPE_STRING");
+	mappings.put("String","SimpleTypes.TYPE_STRING");
+	mappings.put("Token","SimpleTypes.TYPE_STRING");
+	mappings.put("Decimal","SimpleTypes.TYPE_DECIMAL");
+	mappings.put("Integer","SimpleTypes.TYPE_INTEGER");
+	mappings.put("NegativeInteger","SimpleTypes.TYPE_INTEGER");
+	mappings.put("NonNegativeInteger","SimpleTypes.TYPE_INTEGER");
+	mappings.put("NonPositiveInteger","SimpleTypes.TYPE_INTEGER");
+	mappings.put("PositiveInteger","SimpleTypes.TYPE_INTEGER");
+	mappings.put("UnsignedLong","SimpleTypes.TYPE_LONG");
+	mappings.put("ENTITIES","SimpleTypes.TYPE_STRING");	
+	mappings.put("IDREFS","SimpleTypes.TYPE_STRING");	
+	mappings.put("NMTOKENS","SimpleTypes.TYPE_STRING");	
+	mappings.put("Long","SimpleTypes.TYPE_LONG");
+	mappings.put("UnsignedInt","SimpleTypes.TYPE_INTEGER");
+	mappings.put("Short","SimpleTypes.TYPE_INTEGER");
+	mappings.put("UnsignedByte","SimpleTypes.TYPE_INTEGER");
+	//additional XML2Ecore types
+	mappings.put("Any","SimpleTypes.TYPE_STRING");
+	
+	//Database types
+	mappings.put("BOOLEAN","SimpleTypes.TYPE_BOOLEAN");
+	mappings.put("DATE","SimpleTypes.TYPE_DATE");
+	mappings.put("FLOAT","SimpleTypes.TYPE_FLOAT");
+	mappings.put("INTEGER","SimpleTypes.TYPE_INTEGER");
+	mappings.put("VARCHAR[128]","SimpleTypes.TYPE_STRING");
+	mappings.put("VARCHAR[255]","SimpleTypes.TYPE_STRING");
+	mappings.put("VARCHAR[5000]","SimpleTypes.TYPE_STRING");
+	mappings.put("DATETIME","SimpleTypes.TYPE_DATE");
+	mappings.put("TIME","SimpleTypes.TYPE_DATE");
+	mappings.put("TIMESTAMP","SimpleTypes.TYPE_STRING");
+	mappings.put("MONEY","SimpleTypes.TYPE_STRING");
+
+	//javax types
+	mappings.put("javax.xml.datatype.XMLGregorianCalendar","SimpleTypes.TYPE_STRING");
+	
+	return mappings;
+}
+
+operation convertTfType2JavaType(tfType : String): String {
+	var mappings : Map;
+	mappings = createTfType2JavaTypeMappings(); //E
+	
+	if(mappings.containsKey(tfType)) 
+		return mappings.get(tfType);
+	else
+		return "";
+}
+
+operation createTfType2JavaTypeMappings(){
+	var mappings : Map;
+	mappings.put("SimpleTypes.TYPE_STRING","java.lang.String");
+	mappings.put("SimpleTypes.TYPE_FLOAT","java.lang.Float");
+	mappings.put("SimpleTypes.TYPE_DOUBLE","java.lang.Double");
+	mappings.put("SimpleTypes.TYPE_BOOLEAN","java.lang.Boolean");
+	mappings.put("SimpleTypes.TYPE_INTEGER","java.lang.Integer");
+	mappings.put("SimpleTypes.TYPE_LONG","java.lang.Long");
+	mappings.put("SimpleTypes.TYPE_DATE","java.util.Date");
+	mappings.put("SimpleTypes.TYPE_DECIMAL","java.lang.Double");
+	
+	return mappings;
+}
+/*
+operation XmlSchemaSimpleTypes2EDataType(){
+	var mappings : Map;
+	
+	mappings.put("anySimpleType","AnySimpleType");
+	
+	mappings.put("anyURI","AnyURI");
+	
+	mappings.put("base64Binary","Base64Binary");
+	
+	mappings.put("boolean","Boolean");
+	
+	mappings.put("byte","Byte");
+	
+	mappings.put("date","Date");
+	
+	mappings.put("dateTime","DateTime");
+	
+	mappings.put("decimal","Decimal");
+	
+	mappings.put("double","Double");
+	
+	mappings.put("duration","Duration");
+	
+	mappings.put("ENTITIES","ENTITIES");
+	
+	mappings.put("ENTITY","ENTITY");
+	
+	mappings.put("float","Float");
+	
+	mappings.put("gDay","GDay");
+	
+	mappings.put("gMonth","GMonth");
+	
+	mappings.put("gMonthDay","GMonthDay");
+	
+	mappings.put("gYear","GYear");
+	
+	mappings.put("gYearMonth","GYearMonth");
+	
+	mappings.put("hexBinary","HexBinary");
+	
+	mappings.put("ID","ID");
+	
+	mappings.put("IDREF","IDREF");
+	
+	mappings.put("IDREFS","IDREFS");
+	
+	mappings.put("int","Int");
+	
+	mappings.put("integer","Integer");
+	
+	mappings.put("language","Language");
+	
+	mappings.put("long","Long");
+	
+	mappings.put("Name","Name");
+	
+	mappings.put("NCName","NCName");
+	
+	mappings.put("negativeInteger","NegativeInteger");
+	
+	mappings.put("NMTOKEN","NMToken");
+	
+	mappings.put("NMTOKENS","NMTOKENS");
+	
+	mappings.put("nonNegativeInteger","NonNegativeInteger");
+	
+	mappings.put("nonPositiveInteger","NonPositiveInteger");
+	
+	mappings.put("normalizedString","NormalizedString");
+	
+	mappings.put("NOTATION","NOTATION");
+	
+	mappings.put("positiveInteger","PositiveInteger");
+	
+	mappings.put("QName","QName");
+	
+	mappings.put("short","Short");
+	
+	mappings.put("string","String");
+	
+	mappings.put("time","Time");
+	
+	mappings.put("token","Token");
+	
+	mappings.put("unsignedByte","UnsignedByte");
+	
+	mappings.put("unsignedInt","UnsignedInt");
+	
+	mappings.put("unsignedLong","UnsignedLong");
+	
+	mappings.put("unsignedShort","UnsignedShort");
+
+	return mappings;
+}
+*/
+
+
+//OK
+operation FhirPrimitiveTypes2JavaTypesMapping() : Map{
+	var mappings : Map;
+	
+	mappings.put("Base64Binary","java.lang.String");
+	mappings.put("Boolean","java.lang.Boolean");
+	mappings.put("Canonical","java.lang.String");
+	mappings.put("Code","java.lang.String");
+	mappings.put("Date","java.lang.String");
+	mappings.put("DateTime","java.lang.String");
+	mappings.put("Decimal","java.lang.Double");
+	mappings.put("Id","java.lang.String");
+	mappings.put("Instant","java.lang.String");
+	mappings.put("Integer","java.lang.Integer");
+	mappings.put("Markdown","java.lang.String");
+	mappings.put("Oid","java.lang.String");
+	mappings.put("PositiveInt","java.lang.Integer");
+	mappings.put("SampledDataDataType","java.lang.String"); //it is a datatype. to be checked
+	mappings.put("String","java.lang.String"); 
+	mappings.put("Time","java.lang.String");
+	mappings.put("UnsignedInt","java.lang.Integer");
+	mappings.put("Uri","java.lang.String");
+	mappings.put("Url","java.lang.String");
+	mappings.put("Uuid","java.lang.String");
+	mappings.put("Xhtml","java.lang.String");
+
+	mappings.put("Base64BinaryPrimitive","java.lang.String");
+	mappings.put("BooleanPrimitive","java.lang.Boolean");
+	mappings.put("CanonicalPrimitive","java.lang.String");
+	mappings.put("CodePrimitive","java.lang.String");
+	mappings.put("DatePrimitive","java.lang.String");
+	mappings.put("DateTimePrimitive","java.lang.String");
+	mappings.put("DecimalPrimitive","java.lang.Double");
+	mappings.put("IdPrimitive","java.lang.String");
+	mappings.put("InstantPrimitive","java.lang.String");
+	mappings.put("IntegerPrimitive","java.lang.Integer");
+	mappings.put("MarkdownPrimitive","java.lang.String");
+	mappings.put("OidPrimitive","java.lang.String");
+	mappings.put("PositiveIntPrimitive","java.lang.Integer");
+	mappings.put("SampledDataDataTypePrimitive","java.lang.String");
+	mappings.put("StringPrimitive","java.lang.String");
+	mappings.put("TimePrimitive","java.lang.String");
+	mappings.put("UnsignedIntPrimitive","java.lang.Integer");
+	mappings.put("UriPrimitive","java.lang.String");
+	mappings.put("UrlPrimitive","java.lang.String");
+	mappings.put("UuidPrimitive","java.lang.String");
+	mappings.put("XhtmlPrimitive","java.lang.String");
+
+	mappings.put("Base64BinaryPrimitiveBase","java.lang.String");
+	mappings.put("BooleanPrimitiveBase","java.lang.Boolean");
+	mappings.put("CanonicalPrimitiveBase","java.lang.String");
+	mappings.put("CodePrimitiveBase","java.lang.String");
+	mappings.put("DatePrimitiveBase","java.lang.String");
+	mappings.put("DateTimePrimitiveBase","java.lang.String");
+	mappings.put("DecimalPrimitiveBase","java.lang.Double");
+	mappings.put("IdPrimitiveBase","java.lang.String");
+	mappings.put("InstantPrimitiveBase","java.lang.String");
+	mappings.put("IntegerPrimitiveBase","java.lang.Integer");
+	mappings.put("MarkdownPrimitiveBase","java.lang.String");
+	mappings.put("OidPrimitiveBase","java.lang.String");
+	mappings.put("PositiveIntPrimitiveBase","java.lang.Integer");
+	mappings.put("SampledDataDataTypePrimitiveBase","java.lang.String");
+	mappings.put("StringPrimitiveBase","java.lang.String");
+	mappings.put("TimePrimitiveBase","java.lang.String");
+	mappings.put("UnsignedIntPrimitiveBase","java.lang.Integer");
+	mappings.put("UriPrimitiveBase","java.lang.String");
+	mappings.put("UrlPrimitiveBase","java.lang.String");
+	mappings.put("UuidPrimitiveBase","java.lang.String");
+	mappings.put("XhtmlPrimitiveBase","java.lang.String");
+
+	mappings.put("Base64BinaryPrimitiveObject","java.lang.String");
+	mappings.put("BooleanPrimitiveObject","java.lang.Boolean");
+	mappings.put("CanonicalPrimitiveObject","java.lang.String");
+	mappings.put("CodePrimitiveObject","java.lang.String");
+	mappings.put("DatePrimitiveObject","java.lang.String");
+	mappings.put("DateTimePrimitiveObject","java.lang.String");
+	mappings.put("DecimalPrimitiveObject","java.lang.Double");
+	mappings.put("IdPrimitiveObject","java.lang.String");
+	mappings.put("InstantPrimitiveObject","java.lang.String");
+	mappings.put("IntegerPrimitiveObject","java.lang.Integer");
+	mappings.put("MarkdownPrimitiveObject","java.lang.String");
+	mappings.put("OidPrimitiveObject","java.lang.String");
+	mappings.put("PositiveIntPrimitiveObject","java.lang.Integer");
+	mappings.put("SampledDataDataTypeObject","java.lang.String");
+	mappings.put("StringPrimitiveObject","java.lang.String");
+	mappings.put("TimePrimitiveObject","java.lang.String");
+	mappings.put("UnsignedIntPrimitiveObject","java.lang.Integer");
+	mappings.put("UriPrimitiveObject","java.lang.String");
+	mappings.put("UrlPrimitiveObject","java.lang.String");
+	mappings.put("UuidPrimitiveObject","java.lang.String");
+	mappings.put("XhtmlPrimitiveObject","java.lang.String");
+
+	mappings.put("Base64BinaryObject","java.lang.String");
+	mappings.put("BooleanObject","java.lang.Boolean");
+	mappings.put("CanonicalObject","java.lang.String");
+	mappings.put("CodeObject","java.lang.String");
+	mappings.put("DateObject","java.lang.String");
+	mappings.put("DateTimeObject","java.lang.String");
+	mappings.put("DecimalObject","java.lang.Double");
+	mappings.put("IdObject","java.lang.String");
+	mappings.put("InstantObject","java.lang.String");
+	mappings.put("IntegerObject","java.lang.Integer");
+	mappings.put("MarkdownObject","java.lang.String");
+	mappings.put("OidObject","java.lang.String");
+	mappings.put("PositiveIntObject","java.lang.Integer");
+	mappings.put("SampledDataDataTypeObject","java.lang.String");
+	mappings.put("StringObject","java.lang.String");
+	mappings.put("TimeObject","java.lang.String");
+	mappings.put("UnsignedIntObject","java.lang.Integer");
+	mappings.put("UriObject","java.lang.String");
+	mappings.put("UrlObject","java.lang.String");
+	mappings.put("UuidObject","java.lang.String");
+	mappings.put("XhtmlObject","java.lang.String");
+
+	return mappings;
+}
+
+//used by FhirRefactoringByGmCoreAnnotations
+operation XsdEClass2PrimitiveObjectTypeMap(){
+	var mappings : Map;
+	
+	mappings.put("AnySimpleType","AnySimpleTypePrimitiveObject");
+	
+	mappings.put("AnyURI","AnyURIPrimitiveObject");
+	
+	mappings.put("Base64Binary","Base64BinaryPrimitiveObject");
+	
+	mappings.put("Boolean","BooleanPrimitiveObject");
+	
+	mappings.put("Byte","BytePrimitiveObject");
+	
+	mappings.put("Date","DatePrimitiveObject");
+	
+	mappings.put("DateTime","DateTimePrimitiveObject");
+	
+	mappings.put("Decimal","DecimalPrimitiveObject");
+	
+	mappings.put("Double","DoublePrimitiveObject");
+	
+	mappings.put("Duration","DurationPrimitiveObject");
+	
+	mappings.put("ENTITIES","ENTITIESPrimitiveObject");
+	
+	mappings.put("ENTITY","ENTITYPrimitiveObject");
+	
+	mappings.put("Float","FloatPrimitiveObject");
+	
+	mappings.put("GDay","GDayPrimitiveObject");
+	
+	mappings.put("GMonth","GMonthPrimitiveObject");
+	
+	mappings.put("GMonthDay","GMonthDayPrimitiveObject");
+	
+	mappings.put("GYear","GYearPrimitiveObject");
+	
+	mappings.put("GYearMonth","GYearMonthPrimitiveObject");
+	
+	mappings.put("HexBinary","HexBinaryPrimitiveObject");
+	
+	mappings.put("ID","IDPrimitiveObject");
+	
+	mappings.put("IDREF","IDREFPrimitiveObject");
+	
+	mappings.put("IDREFS","IDREFSPrimitiveObject");
+	
+	mappings.put("Int","IntPrimitiveObject");
+	
+	mappings.put("Integer","IntegerPrimitiveObject");
+	
+	mappings.put("Language","LanguagePrimitiveObject");
+	
+	mappings.put("Long","LongPrimitiveObject");
+	
+	mappings.put("Name","NamePrimitiveObject");
+	
+	mappings.put("NCName","NCNamePrimitiveObject");
+	
+	mappings.put("NegativeInteger","NegativeIntegerPrimitiveObject");
+	
+	mappings.put("NMToken","NMTokenPrimitiveObject");
+	
+	mappings.put("NMTOKENS","NMTOKENSPrimitiveObject");
+	
+	mappings.put("NonNegativeInteger","NonNegativeIntegerPrimitiveObject");
+	
+	mappings.put("NonPositiveInteger","NonPositiveIntegerPrimitiveObject");
+	
+	mappings.put("NormalizedString","NormalizedStringPrimitiveObject");
+	
+	mappings.put("NOTATION","NOTATIONPrimitiveObject");
+	
+	mappings.put("PositiveInteger","PositiveIntegerPrimitiveObject");
+	
+	mappings.put("QName","QNamePrimitiveObject");
+	
+	mappings.put("Short","ShortPrimitiveObject");
+	
+	mappings.put("String","StringPrimitiveObject");
+	
+	mappings.put("Time","TimePrimitiveObject");
+	
+	mappings.put("Token","TokenPrimitiveObject");
+	
+	mappings.put("UnsignedByte","UnsignedBytePrimitiveObject");
+	
+	mappings.put("UnsignedInt","UnsignedIntPrimitiveObject");
+	
+	mappings.put("UnsignedLong","UnsignedLongPrimitiveObject");
+	
+	mappings.put("UnsignedShort","UnsignedShortPrimitiveObject");
+
+	return mappings;
+}
+
+

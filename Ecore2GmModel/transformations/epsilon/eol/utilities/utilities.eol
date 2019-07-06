@@ -1,0 +1,221 @@
+//Add sanityze string
+
+operation sanitize(str:String) : String {
+	var a = str.replace(" ","_");
+	var b = a.replace(":","");
+	var c = b.replace("\\[","");
+	var d = c.replace("\\]","");
+	return d;
+}
+
+operation getType(type : String) : String {
+	var mappings : Map = createEDataTypeMappings();
+}
+
+operation createDefaultUMLTypeMappings(): Map {
+	var mappings : Map;
+
+	mappings.put("BooleanObject","java.lang.Boolean");
+	mappings.put("byte","java.lang.Byte");
+	mappings.put("byte[]","java.util.List<java.lang.Byte>");
+	mappings.put("ByteObject","java.lang.Byte");
+	mappings.put("double","java.lang.Double");
+	mappings.put("DoubleObject","java.lang.Double");
+	mappings.put("float","java.lang.Float");
+	mappings.put("FloatObject","java.lang.Float");
+	mappings.put("int","java.lang.Integer");
+	mappings.put("IntObject","java.lang.Integer");
+	mappings.put("java.lang.boolean","java.lang.Boolean");
+	mappings.put("java.lang.Object","java.lang.Object");
+	mappings.put("java.lang.String","java.lang.String");
+	mappings.put("java.math.BigDecimal","java.lang.Double");
+	mappings.put("java.math.BigInteger","java.lang.Integer");
+	mappings.put("java.util.List","java.util.List");
+	mappings.put("long","java.lang.Long");
+	mappings.put("LongObject","java.lang.Long");
+	mappings.put("short","java.lang.Short");
+	mappings.put("ShortObject","java.lang.Short");
+	mappings.put("UnsignedByteObject","java.lang.Byte");
+	mappings.put("UnsignedIntObject","java.lang.Integer");
+	mappings.put("UnsignedShortObject","java.lang.Short");
+
+	return mappings;
+}
+
+operation getType(type : String) : String {
+	var mappings : Map = createEDataTypeMappings();
+}
+
+
+
+operation EClass getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");
+					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");	
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+
+operation EDataType getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");	
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+
+operation EStructuralFeature getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");	
+					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");							
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+
+operation EPackage getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");	
+					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");							
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+

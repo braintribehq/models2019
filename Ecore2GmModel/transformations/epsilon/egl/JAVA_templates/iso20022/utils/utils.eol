@@ -1,0 +1,85 @@
+operation isKeyword(str : String) : Boolean {
+	var keywords: Set;
+	keywords.add("abstract"); 
+	keywords.add("assert"); 
+	keywords.add("boolean");
+	keywords.add("break"); 
+	keywords.add("byte"); 
+	keywords.add("case"); 
+	keywords.add("catch"); 
+	keywords.add("char"); 
+	keywords.add("class"); 
+	keywords.add("const");
+	keywords.add("continue"); 
+	keywords.add("default"); 
+	keywords.add("do"); 
+	keywords.add("double"); 
+	keywords.add("else"); 
+	keywords.add("extends"); 
+	keywords.add("false");
+	keywords.add("final"); 
+	keywords.add("finally"); 
+	keywords.add("float"); 
+	keywords.add("for"); 
+	keywords.add("goto"); 
+	keywords.add("if"); 
+	keywords.add("implements");
+	keywords.add("import"); 
+	keywords.add("instanceof"); 
+	keywords.add("int"); 
+	keywords.add("interface"); 
+	keywords.add("long"); 
+	keywords.add("native");
+	keywords.add("new"); 
+	keywords.add("null"); 
+	keywords.add("package"); 
+	keywords.add("private"); 
+	keywords.add("protected"); 
+	keywords.add("public");
+	keywords.add("return"); 
+	keywords.add("short"); 
+	keywords.add("static"); 
+	keywords.add("strictfp"); 
+	keywords.add("super"); 
+	keywords.add("switch");
+	keywords.add("synchronized"); 
+	keywords.add("this"); 
+	keywords.add("throw"); 
+	keywords.add("throws"); 
+	keywords.add("transient"); 
+	keywords.add("true");
+	keywords.add("try"); 
+	keywords.add("void"); 
+	keywords.add("volatile"); 
+	keywords.add("while");
+	return keywords.includes(str);
+}
+
+
+operation generateSuperTypesString(entity) : String {
+//Generate supertype_string
+//The GenericEntity always extends the given interface
+	var debug = true;
+	var supertype_string : String = "";
+	if(not (entity.superType.isUndefined())){
+		var supertype = entity.superType.name;
+		supertype_string += ", ";
+		supertype_string += supertype;
+		
+		if(debug) supertype.errln("SUPER:");
+		
+		if(supertype_string == ", ") supertype_string = "";
+		if(debug) supertype_string.errln("SUPER_STR:");
+	}
+	return supertype_string;
+}
+
+operation getSanitizedDescription(entity) : String {
+	var description = "";
+	if(not entity.definition.isUndefined()) description = entity.definition;
+	description = description.replace("\n", "");
+	description = description.replace("\r", "");
+	description = description.replace("\"", "");
+	return description;
+}
+

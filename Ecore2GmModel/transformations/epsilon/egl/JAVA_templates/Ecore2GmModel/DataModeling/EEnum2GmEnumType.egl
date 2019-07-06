@@ -1,0 +1,58 @@
+[%
+import "../../../../eol/utilities/utilities.eol";
+import "../utils/utils.eol";
+import "../utils/EcoreUtil.eol";
+
+var debug = false;
+
+
+if(debug) enum.errln("Enum:"); 
+
+var eliterals = enum.eLiterals.asOrderedSet();
+var last_eliteral = eliterals.last();
+var package_string = getFullPath(enum);
+
+
+%]
+/*
+Auto-generated code via model transformation (Eclipse Epsilon EGL/EGX).
+Task: Cartridge Development - Data Model generation
+This Java source artifact defines the Data Enumeration Type [%=enum.getAnnotationValue("GmCore", "name")%].
+The resulting Data Model 
+- has to be imported as servlet in your TribeFire server (Data Model are bundled within a .war file), 
+- has to be detected and syncronized in the TribeFire::ControlCenter
+As a result, a Business Model (or simply Model) should be visible throung the TribeFire:Modeler.
+
+Author: Luca Berardinelli
+Tool: Eclipse Epsilon
+*/
+
+
+package [%=package_string%];
+
+import com.braintribe.model.generic.annotation.*;
+
+
+public enum [%=enum.getAnnotationValue("GmCore", "name").firstToUpperCase()%] {
+
+[%
+for (eliteral in eliterals) {
+	if(debug) eliteral.literal.errln("Literal:");
+	if( not(eliteral = last_eliteral) ){
+%]
+	[%=eliteral.name.toUpperCase()%], // [%=eliteral.literal%]
+[%	
+	} 
+	else{
+%]
+	[%=eliteral.name.toUpperCase()%]; // [%=eliteral.literal%]
+[%	
+	}
+}
+%]
+}
+
+[%
+enum.name.errln("DONE EEnum2GmEnumType:");
+%]
+

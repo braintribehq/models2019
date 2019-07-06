@@ -1,0 +1,83 @@
+[%
+import "../../../../eol/utilities/utilities.eol";
+import "../utils/utils.eol";
+
+var debug : Boolean = false;
+var nesting = 0;
+var container_path = "";
+
+
+var entity_name = entity.name;
+
+var operations = new Set;
+
+var package_string = getFullPath(entity);
+var description = getDescription(entity);
+
+
+var nameMetadata = getExtendedMetadata("name");
+var baseTypeMetadata = getExtendedMetadata("baseType");
+var maxLengthMetadata = getExtendedMetadata("maxLength");
+var minLengthMetadata = getExtendedMetadata("minLength");
+
+var sourceType =entity.instanceClassName;//.asString();
+if(debug) entity.instanceClassName.errln("entity.instanceClassName: ");
+
+if(debug) entity.errln("entity: ");
+if(debug) entity.ePackage.errln("entity.ePackage: ");
+if(debug) entity.name.asString().errln("entity.name: ");
+
+if(sourceType.isUndefined()) entity.name;
+
+var type = convert2CompatibleJavaType(sourceType);
+%]
+/*
+Auto-generated code via model transformation (Eclipse Epsilon EGL/EGX).
+Task: Cartridge Development - Data Model generation
+This Java source artifact defines the Data Type [%=entity_name%].
+The resulting Data Model 
+- has to be imported as servlet in your TribeFire server (Data Model are bundled within a .war file), 
+- has to be detected and syncronized in the TribeFire::ControlCenter
+As a result, a Business Model (or simply Model) should be visible throung the TribeFire:Modeler.
+
+Author: Luca Berardinelli
+Tool: Eclipse Epsilon
+Template: EDataType2GmEntityType.egl
+*/
+
+package [%=package_string%];
+
+
+import com.braintribe.model.generic.GenericEntity;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+import com.braintribe.model.generic.annotation.*;
+import com.braintribe.model.generic.annotation.meta.*;
+/**
+ * @author luca.berardinelli
+ */
+
+
+
+@Description("[%=description%]")
+public interface [%=entity_name%] extends GenericEntity{
+
+	EntityType<[%=entity_name%]> T = EntityTypes.T([%=entity_name%].class);
+
+
+	[%=type%] getValue();
+	void setValue([%=type%] value);
+	
+}
+
+//[%=entity%]
+//[%=nameMetadata%]
+//[%=baseTypeMetadata%]
+//[%=entity.instanceClassName%]
+//[%=entity.instanceTypeName%]
+//[%=maxLengthMetadata%]
+//[%=minLengthMetadata%]
+
+[%
+entity.name.errln("DONE: DataType - ");
+%]

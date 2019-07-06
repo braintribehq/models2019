@@ -1,0 +1,57 @@
+//Add sanityze string
+
+operation sanitize(str:String) : String {
+	var a = str.replace(" ","_");
+	var b = a.replace(":","");
+	var c = b.replace("\\[","");
+	var d = c.replace("\\]","");
+	return d;
+}
+
+operation generateString() : String {
+
+}
+
+operation Element getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");
+					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");	
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+

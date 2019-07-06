@@ -1,0 +1,374 @@
+[%
+import "../utils/utils.eol";
+import "../utils/EcoreUtil.eol";
+
+//debuggin vars
+var debug : Boolean = false;
+var debug2 : Boolean = false;
+var debug3 : Boolean = false;
+var debug4 : Boolean = false;
+
+//annotation vars
+var gmCore = "GmCore";
+var gmCore_ignored = "ignored";
+var gmCore_enumConversion = "enumConversion";
+var gmCore_primitiveTypeConversion = "convertedToPrimitiveType";
+var gmCore_classConversion = "convertedToEClass";
+var gmCore_dataTypeConversion = "dataTypeConversion";
+var gmCore_name = "name";
+var gmCore_replacedBy = "replacedBy";
+
+var genModel = "http://www.eclipse.org/emf/2002/GenModel";
+var genModel_documentation = "documentation";
+var emfTool = new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+var ecoreUtil = emfTool.ecoreUtil;
+var rootContainer = ecoreUtil.getRootContainer(entity);
+var eClassifiers = EClassifier.all;
+var eClassifier_names: Sequence;
+var container = entity;
+var nesting = 0;
+var container_path = "";
+
+while (container.isDefined()) {
+	container_path = container_path.concat(container.name);
+	container_path = container_path.concat("\\");
+	nesting++;
+	container = container.eContainer();
+}
+
+var entity_name = entity.getAnnotationValue(gmCore, gmCore_name);
+if (entity_name = "false") entity_name = entity.name;
+
+if(debug3) "".errln();
+if(debug3) entity_name.errln("EntityType: ");
+
+var eStructuralFeatures : Sequence = entity.eStructuralFeatures.asSequence();
+var eAttributes : Sequence = entity.eAttributes.asSequence();
+var eReferences : Sequence = entity.eReferences.asSequence();
+
+var package_string = getFullPath(entity);
+
+//generate supertype string
+var supertype_string = entity.getSuperTypesAsString();
+
+var descriptionMetadata;
+
+%]
+/*
+Auto-generated code via model transformation (Eclipse Epsilon EGL/EGX).
+Task: Cartridge Development - Data Model generation
+This Java source artifact defines the Data Type [%=entity_name%] of the Data Model [%=rootContainer.nsPrefix%].
+The resulting Data Model 
+- has to be imported as servlet in your TribeFire server (Data Model are bundled within a .war file), 
+- has to be detected and syncronized in the TribeFire::ControlCenter
+As a result, a Business Model (or simply Model) should be visible throung the TribeFire:Modeler.
+
+Author: Luca Berardinelli
+Tool: Eclipse Epsilon
+*/
+
+package [%=package_string%];
+
+import com.braintribe.model.generic.GenericEntity;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+import com.braintribe.model.generic.annotation.*;
+import com.braintribe.model.generic.annotation.meta.*;
+
+[%
+//Handling dependencies to other modules
+var addDependencies : Boolean = false;
+if(addDependencies){
+%]
+//dependencies to external modules here
+[%
+	var externalImportSet : Set;
+	for (eclassifier in eClassifiers) { 
+		externalImportSet.add(eclassifier.ePackage.name);
+	}
+	for (externalPackage in externalImportSet) { 
+		if(not(externalPackage==entity.ePackage.name)){
+	%]
+	import [%=externalPackage.toLowerCase().replace("\\s|\\.","")%];
+	[%	
+		}
+	}
+}
+%]
+/**
+ * 
+ * It consists of then following properties
+[%
+
+//Adding structural feature names. 
+//We assume that the feature names are compliant to naming conventions.
+//If not defined, a default undefined name is added.
+
+ //add list of properties and property names
+var structural_feature_name;
+
+var excludedEClassifiers = EClassifier.all.select(e|e.getAnnotationValue(gmCore,gmCore_ignored)="true" and e.getAnnotationValue(gmCore,gmCore_replacedBy).asString().length()<1);
+var referenceTest =  excludedEClassifiers.select(e|e.name == "Reference");
+
+var availableFeatures = eStructuralFeatures.select(e|excludedEClassifiers.excludes(e.getEType()));
+
+			
+for (structural_feature in availableFeatures) {	
+	structural_feature_name =  structural_feature.getAnnotationValue(gmCore,gmCore_name);
+	if(structural_feature_name.isUndefined()) structural_feature_name =  structural_feature.name;//.firstToLowerCase().replace("\\s|\\.","");
+	if(isKeyword(structural_feature_name)) structural_feature_name+="_"; //to be anticipated to model validation before model transformation
+	 //add list of getters and setters
+	
+%]
+{@link [%= structural_feature_name%]}, 
+[%	
+}
+%]
+
+* It provides of then following operations (getters and setters)
+[%
+
+
+for (structural_feature in availableFeatures) {
+	structural_feature_name =  structural_feature.getAnnotationValue(gmCore,gmCore_name);
+	if(structural_feature_name.isUndefined()) structural_feature_name =  structural_feature.name;
+	if(isKeyword(structural_feature_name)) structural_feature_name+="_"; 
+	
+%]
+{@link get[%= structural_feature_name.firstToUpperCase()%]},
+[%	
+}
+for (structural_feature in availableFeatures) { 
+	structural_feature_name =  structural_feature.getAnnotationValue(gmCore,gmCore_name);
+	if(structural_feature_name.isUndefined()) structural_feature_name =  structural_feature.name;
+	if(isKeyword(structural_feature_name)) structural_feature_name+="_"; 
+%]
+{@link set[%= structural_feature_name.firstToUpperCase()%]},
+[%	
+}
+%]
+ */
+
+[%
+//Metadata @Description
+descriptionMetadata = entity.getAnnotationValue(genModel,genModel_documentation);
+%]
+@Description("[%=descriptionMetadata%]")
+[%
+
+//Metadata @Abstract
+var abstractMetadata = "";
+
+if(entity.isAbstract()){%] 
+[%="@Abstract"%] 
+[%}%]
+
+public interface [%=entity_name%] extends GenericEntity[%= supertype_string%] {
+
+	EntityType<[%=entity_name%]> T = EntityTypes.T([%=entity_name%].class);
+
+	/* Constants for each property name. */
+[%
+ //add list of properties and property names
+for (structural_feature in availableFeatures) {
+
+	//Retrieve GmCore eAnnotation
+	structural_feature_name =  structural_feature.getAnnotationValue(gmCore, gmCore_name);
+	
+	if(isKeyword(structural_feature_name)) structural_feature_name += "_";
+%]
+	java.lang.String [%= structural_feature_name%] = "[%= structural_feature_name%]";
+[%	
+}
+%]
+
+[%
+
+ //getters and setters for GmEntityType properties
+ 
+for (structural_feature in availableFeatures) {
+	//Find the structural feature type
+	var type = null;
+	var name = null;
+	//Type information is given in the source model
+	//if(structural_feature.isTypeOf(EAttribute)){
+		if(debug2) structural_feature.errln("Structural Feature is EAttribute: ");
+		if(debug3) structural_feature.eType.name.errln("Structural Feature eType name: ");
+ 		var classifier  = EClassifier.all.selectOne(e|e.name = structural_feature.eType.name);
+ 		var datatype  = EDataType.all.selectOne(e|e.name = structural_feature.eType.name);
+ 		var enum  = EEnum.all.selectOne(e|e.name = structural_feature.eType.name);
+		
+		if (classifier.isDefined()){
+			if(debug3) classifier.errln("-Found from EClassifier: ");
+			
+			if(classifier.isAnnotatedAs(gmCore)){
+				name = classifier.getAnnotationValue(gmCore, gmCore_name);
+			}
+			else{
+				name = classifier.name;
+			}
+			
+			if(debug3) (classifier.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined()).errln(gmCore_enumConversion+": ");
+			if(debug3) (classifier.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined()).errln(gmCore_primitiveTypeConversion+": ");
+			if(debug3) (classifier.getAnnotationValue(gmCore, gmCore_classConversion).isDefined()).errln(gmCore_classConversion+": ");
+			if(debug3) (classifier.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined()).errln(gmCore_dataTypeConversion+": ");
+			if(debug3) (classifier.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined()).errln(gmCore_replacedBy+": ");
+			
+			if((classifier.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined())) {
+				type = classifier.getAnnotationValue(gmCore, gmCore_enumConversion);
+			}
+			else if( (classifier.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined())) {
+				type = classifier.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion);
+			}
+			else if( (classifier.getAnnotationValue(gmCore, gmCore_classConversion).isDefined())) {
+				type = classifier.getAnnotationValue(gmCore, gmCore_classConversion);
+			}
+			else if( (classifier.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined())) {
+				type = classifier.getAnnotationValue(gmCore, gmCore_dataTypeConversion);
+			}
+			else if( (classifier.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined())) {
+				type = classifier.getAnnotationValue(gmCore, gmCore_replacedBy);
+			} 
+			else if(type.isUndefined()) {
+				type = getFullPath(classifier)+"."+name;
+			}
+			if(debug3)type.errln("Chosen Type from Classifier: "); 
+		}
+		else if(datatype.isDefined()){
+			if(debug3) datatype.errln("-Found from datatype: ");
+
+			if(datatype.isAnnotatedAs(gmCore)){
+				name = datatype.getAnnotationValue(gmCore, gmCore_name);
+			}
+			else{
+				name = datatype.name;
+			}
+
+			if(debug3) (datatype.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined()).errln(gmCore_enumConversion+": ");
+			if(debug3) (datatype.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined()).errln(gmCore_primitiveTypeConversion+": ");
+			if(debug3) (datatype.getAnnotationValue(gmCore, gmCore_classConversion).isDefined()).errln(gmCore_classConversion+": ");
+			if(debug3) (datatype.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined()).errln(gmCore_dataTypeConversion+": ");
+			if(debug3) (datatype.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined()).errln(gmCore_replacedBy+": ");
+						
+			if( (datatype.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined())) {
+				type = datatype.getAnnotationValue(gmCore, gmCore_enumConversion);
+			}
+			else if( (datatype.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined())) {
+				type = datatype.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion);
+			}
+			else if( (datatype.getAnnotationValue(gmCore, gmCore_classConversion).isDefined())) {
+				type = datatype.getAnnotationValue(gmCore, gmCore_classConversion);
+			}
+			else if( (datatype.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined())) {
+				type = datatype.getAnnotationValue(gmCore, gmCore_dataTypeConversion);
+			}
+			else if( (datatype.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined())) {
+				type = datatype.getAnnotationValue(gmCore, gmCore_replacedBy);
+			} 
+			else if(type.isUndefined()) {
+				type = getFullPath(datatype)+"."+name;
+			} 
+			if(debug3)type.errln("Chosen Type from Classifier: "); 
+		}
+		else if(enum.isDefined()){
+			if(debug3) enum.errln("-Found from enum: ");
+
+			if(enum.isAnnotatedAs(gmCore)){
+				name = enum.getAnnotationValue(gmCore, gmCore_name);
+			}
+			else{
+				name = enum.name;
+			}
+
+			if(debug3) (enum.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined()).errln(gmCore_enumConversion+": ");
+			if(debug3) (enum.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined()).errln(gmCore_primitiveTypeConversion+": ");
+			if(debug3) (enum.getAnnotationValue(gmCore, gmCore_classConversion).isDefined()).errln(gmCore_classConversion+": ");
+			if(debug3) (enum.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined()).errln(gmCore_dataTypeConversion+": ");
+			if(debug3) (enum.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined()).errln(gmCore_replacedBy+": ");
+			
+			if( (enum.getAnnotationValue(gmCore, gmCore_enumConversion).isDefined())) {
+				type = enum.getAnnotationValue(gmCore, gmCore_enumConversion);
+			}
+			else if( (enum.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion).isDefined())) {
+				type = enum.getAnnotationValue(gmCore, gmCore_primitiveTypeConversion);
+			}
+			else if( (enum.getAnnotationValue(gmCore, gmCore_classConversion).isDefined())) {
+				type = enum.getAnnotationValue(gmCore, gmCore_classConversion);
+			}
+			else if( (enum.getAnnotationValue(gmCore, gmCore_dataTypeConversion).isDefined())) {
+				type = enum.getAnnotationValue(gmCore, gmCore_dataTypeConversion);
+			}
+			else if( (enum.getAnnotationValue(gmCore, gmCore_replacedBy).isDefined())) {
+				type = enum.getAnnotationValue(gmCore, gmCore_replacedBy);
+			} 
+			else if(type.isUndefined()) {
+				type = getFullPath(enum)+"."+name;
+			} 
+			if(debug3)type.errln("Chosen Type from Classifier: "); 
+		}
+					
+
+		if(type.isUndefined() or type = ""){ 
+		
+		//3. Type unknown. We check mappings
+		//mappings for XSD Primitive Types
+		
+		var xsdType2JavaPrimitiveType = XsdType2JavaPrimitiveType();			
+		if(xsdType2JavaPrimitiveType.containsKey(structural_feature.getEType().name)){
+			type = xsdType2JavaPrimitiveType.get(structural_feature.getEType().name);
+		}
+		if(type.isUndefined()){
+			type = convert2CompatibleJavaType(structural_feature.getEType().name);
+		}
+		if(type.isUndefined()){
+			var message = "WARNING: Fake details added to: " + entity.getAnnotationValue(gmCore, gmCore_name);
+			message.errln();
+			type = "FakeEntity";
+		}	
+	}
+
+/*Multiplicity*/
+	
+	descriptionMetadata = structural_feature.getAnnotationValue(genModel,genModel_documentation);
+	var structural_feature_name = structural_feature.getAnnotationValue(gmCore, gmCore_name);
+	if(structural_feature_name.isUndefined()) structural_feature_name= structural_feature.name;
+	
+	if(isKeyword(structural_feature_name)) structural_feature_name+="_";
+	
+	if(debug) structural_feature_name.errln("structural_feature_name: ");
+	
+	if (structural_feature.upperBound > -1 and structural_feature.upperBound < 2) {
+		if(debug3) "".errln("(0..1) "+ type + " " + structural_feature_name);
+		
+		//Mandatory Metadata
+		var mandatoryMetadata= "";
+		if(structural_feature.upperBound>0) mandatoryMetadata = "@Mandatory";
+		
+%]
+	@Description("[%=descriptionMetadata%]")
+	[%=mandatoryMetadata%]
+	[%= type%] get[%= structural_feature_name.firstToUpperCase()%]();
+	void set[%= structural_feature_name.firstToUpperCase()%]([%= type%] [%= structural_feature_name%]);
+[%			
+	}
+	//else optional or mandatoryMetadata multivalued property
+	else {
+		if(debug3) "".errln("(0..*) "+ type + " " + structural_feature_name);
+		
+		//Mandatory Metadata
+		var mandatoryMetadata= "";
+		if(structural_feature.upperBound>0) mandatoryMetadata = "@Mandatory";
+%]
+	@Description("[%=descriptionMetadata%]")
+	[%=mandatoryMetadata%]
+	java.util.List<[%= type%]> get[%= structural_feature_name.firstToUpperCase()%]();
+	void set[%= structural_feature_name.firstToUpperCase()%](java.util.List<[%= type%]> [%= structural_feature_name%]);
+
+[%			
+	} 
+}
+%]
+}
+[%
+(entity.ePackage.name +"."+ entity_name).errln("DONE EClass2GmEntityType: ");
+%]

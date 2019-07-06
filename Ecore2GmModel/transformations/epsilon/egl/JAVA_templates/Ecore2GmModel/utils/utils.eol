@@ -1,0 +1,332 @@
+import "typeMappings.eol";
+
+
+operation isKeyword(str : String) : Boolean {
+	var keywords: Set;
+	keywords.add("abstract"); 
+	keywords.add("assert"); 
+	keywords.add("boolean");
+	keywords.add("break"); 
+	keywords.add("byte"); 
+	keywords.add("case"); 
+	keywords.add("catch"); 
+	keywords.add("char"); 
+	keywords.add("class"); 
+	keywords.add("const");
+	keywords.add("continue"); 
+	keywords.add("default"); 
+	keywords.add("do"); 
+	keywords.add("double"); 
+	keywords.add("else"); 
+	keywords.add("extends"); 
+	keywords.add("false");
+	keywords.add("final"); 
+	keywords.add("finally"); 
+	keywords.add("float"); 
+	keywords.add("for"); 
+	keywords.add("goto"); 
+	keywords.add("if"); 
+	keywords.add("implements");
+	keywords.add("import"); 
+	keywords.add("instanceof"); 
+	keywords.add("int"); 
+	keywords.add("interface"); 
+	keywords.add("long"); 
+	keywords.add("native");
+	keywords.add("new"); 
+	keywords.add("null"); 
+	keywords.add("package"); 
+	keywords.add("private"); 
+	keywords.add("protected"); 
+	keywords.add("public");
+	keywords.add("return"); 
+	keywords.add("short"); 
+	keywords.add("static"); 
+	keywords.add("strictfp"); 
+	keywords.add("super"); 
+	keywords.add("switch");
+	keywords.add("synchronized"); 
+	keywords.add("this"); 
+	keywords.add("throw"); 
+	keywords.add("throws"); 
+	keywords.add("transient"); 
+	keywords.add("true");
+	keywords.add("try"); 
+	keywords.add("void"); 
+	keywords.add("volatile"); 
+	keywords.add("while");
+	return keywords.includes(str);
+}
+
+operation getDescription(entity) : String {
+	var debug : Boolean = false;
+
+	//eAnnotation http://www.eclipse.org/emf/2002/GenModel
+	var eAnnotationGenModel = entity.getEAnnotation("http://www.eclipse.org/emf/2002/GenModel");
+	var eAnnotationGenModelDetails  : OrderedSet;
+	var description : String;
+	if(eAnnotationGenModel.isDefined()){
+		eAnnotationGenModelDetails = eAnnotationGenModel.getDetails();
+		if(debug) eAnnotationGenModelDetails.first().errln();
+		if(debug) eAnnotationGenModelDetails.first().key.errln();
+		if(debug) eAnnotationGenModelDetails.first().value.errln();
+		if(eAnnotationGenModelDetails.key.first() = "documentation"){
+			description = eAnnotationGenModelDetails.first().value;
+			description = description.replace("\n", "");
+			description = description.replace("\r", "");
+			description = description.replace("\"", "");
+		}
+		else description = "Description is not available.";
+	}
+	return description;
+}
+
+operation getExtendedMetadata(metadataName: String) : Any {
+	var debug : Boolean = false;
+	
+	var eAnnotationGenModel = entity.getEAnnotation("http:///org/eclipse/emf/ecore/util/ExtendedMetaData");
+	var eAnnotationGenModelDetails  : OrderedSet;
+	var result : String = null;
+	if(eAnnotationGenModel.isDefined()){
+		eAnnotationGenModelDetails = eAnnotationGenModel.getDetails();
+		for (detail in eAnnotationGenModelDetails) { 
+			if(debug) detail.errln("***************************************");
+			if(debug) detail.key.errln("***************************************");
+			if(debug) detail.value.errln("***************************************");
+			if(debug) (detail.key = metadataName).errln("***************************************");
+			if(detail.key = metadataName){
+				result = detail.value;
+				result = result.replace("\n", "");
+				result = result.replace("\r", "");
+				result = result.replace("\"", "");
+				return result;
+			}		
+		}
+	}
+	return result;
+}
+
+operation getFullPath(classifier : EClassifier): String {
+	var superpackage = classifier.ePackage;
+	var result = "";
+	while (superpackage.isDefined()){
+		var name = superpackage.name;
+		result = name+"."+result;
+		superpackage = superpackage.getESuperPackage();
+	}
+	result = result.toLowerCase();
+	if(result.length()>0)result = result.substring(0,result.length()-1);
+	else result = "";
+	
+	return result;
+}
+
+operation EClass getSuperTypesAsString(){
+	var debug = false;
+	var supertype_string = "";
+	var supertypes = self.eSuperTypes.asOrderedSet(); //only direct supertypes but EModelElement
+	
+	if(not supertypes.isEmpty()){
+		for (supertype in supertypes) { 
+			var a = supertype.isAnnotatedAs("GmCore");
+			var b = supertype.getAnnotationValue("GmCore", "ignored");
+			var result = (a and not (b="true"));
+			if(result){
+				var fullPath = getFullPath(supertype);
+				supertype_string += ", ";
+				if(fullPath.length>1) supertype_string += fullPath + "." + supertype.name;//(supertype.name.replace("\\s|\\.",""));
+				else supertype_string += supertype.name;//(supertype.name.replace("\\s|\\.",""));
+				if(debug) supertype.name.errln("--- ");
+			}
+		}
+		if(supertype_string == ", ") supertype_string = "";
+	}
+	return supertype_string;
+}
+
+//the other utils
+operation EClass replaceWithBooleanPrimitiveType(booleanReference: EReference) {
+	var newEAttribute = new EAttribute;
+	self.eStructuralFeatures.add(newEAttribute);
+	delete booleanReference;
+}
+
+operation fixAttributeNames(){
+	var eClasses = EClass.all();
+	for (eclass in eClasses) { 
+		var features = eclass.getEAllStructuralFeatures();
+		for (feature in features) { 
+			feature.name = feature.name.replace("\\s","");
+			feature.name = feature.name.replace("\\.","_");
+			//feature.name = feature.name.firstToLowerCase();
+		}
+	}
+}
+
+operation fixDataTypes(){
+	var eDataTypes = EDataType.all();
+	for (edatatype in eDataTypes) { 
+		edatatype.errln();
+		edatatype.instanceClassName.errln();
+		edatatype.name = edatatype.name.replace("\\s","");		
+		if(not edatatype.instanceClassName.isDefined()){
+			edatatype.instanceClassName = "java.lang.String";
+		}
+		
+	}
+}
+
+operation checkEntityTypedStructuralFeature(){
+	var eDataTypes = EDataType.all();
+	for (edatatype in eDataTypes) { 
+		edatatype.errln();
+		edatatype.instanceClassName.errln();
+		edatatype.name = edatatype.name.replace("\\s","");		
+		if(not edatatype.instanceClassName.isDefined()){
+			edatatype.instanceClassName = "java.lang.String";
+		}
+		
+	}
+}
+
+operation fixEnumerations(){
+	var eenums = EEnum.all();
+	for (eenum in eenums) { 
+		eenum.errln();
+		var eliterals = eenum.eLiterals.errln();
+		for (eliteral in eliterals) { 
+			eliteral.name = eliteral.name.replace("\\s","_");
+			eliteral.name = eliteral.name.replace("-","_");
+			eliteral.name = eliteral.name.replace("\\(","_");
+			eliteral.name = eliteral.name.replace("\\)","_");
+			eliteral.name = eliteral.name.replace("\\/","_");
+			eliteral.name = eliteral.name.replace("\\.","_");
+			eliteral.name = eliteral.name.replace("=","_");
+			eliteral.name = eliteral.name.replace("\\+","_");
+			eliteral.name = eliteral.name.replace("\\?","_");
+			eliteral.name = eliteral.name.replace(",","_");
+			eliteral.name = eliteral.name.replace("&","_and_");
+			eliteral.name = eliteral.name.replace("%","_percent_");
+			eliteral.name = eliteral.name.replace(":","_");
+			eliteral.name = eliteral.name.replace(";","_");
+			eliteral.name = eliteral.name.replace("'","_");
+			eliteral.name = eliteral.name.replace("_{1,}", "_");
+
+		}
+				
+	}
+}
+
+operation EModelElement generateDefaultGmCoreAnnotation(){
+	var debug = false;
+	
+	if(debug) "generateDefaultGmCoreAnnotation".errln();
+	var gmmEAnnotation = new EAnnotation;
+	var source = "GmCore";
+	var details = gmmEAnnotation.getDetails();
+	
+	//details for any model element
+	details.put("ignored","false");
+	if(self.isKindOf(ENamedElement)) details.put("name",self.name);
+	
+	if(not(self.isTypeOf(EStructuralFeature))){
+		details.put("convertedToEEnum","");
+		details.put("convertedToPrimitiveType","");
+		details.put("convertedToEClass","");
+		details.put("convertedToEDataType","");
+		details.put("replacedBy","");
+		
+	}
+	//if(self.isTypeOf(EEnum)){
+		//details.put("referenceEClass","");
+	//}
+	gmmEAnnotation.source = source;
+	self.eAnnotations.add(gmmEAnnotation);
+}
+
+operation EModelElement generateAnnotationLinkToEnum(enumType: String){
+	var debug = false;
+	if(not self.isSelfAnnotatedAs("GmCore")) return;
+	self.getAnnotation("GmCore").details.put("convertedToEEnum",enumType);
+}
+
+/*
+These refactoring actions are model-specific and cannot be generalized at the moment.
+Further investigation needed.
+*/
+operation EModelElement ignoreElement(){
+	var debug = true;
+	//if(debug) self.isSelfAnnotatedAs("GmCore").errln("self.isSelfAnnotatedAs(GmCore)");
+	if(not self.isSelfAnnotatedAs("GmCore")) return;
+	if(self.isTypeOf(EClass)){
+		self.getAnnotation("GmCore").details.put("ignored","true");
+	}
+}
+
+/*
+Check if the given named element is an EDataType whose name ends with "Object"
+*/
+
+operation ENamedElement isEnumObject(): Boolean{
+	var debug = false;
+	
+	var a = self.isTypeOf(EDataType);
+	var b = self.name.endsWith("Object");
+	if(debug) a.errln(self.name + " :");
+	if(debug) (a and b).errln(self.name + " isEnumObject: ");
+	
+	return (a and b);
+}
+
+operation EClass isSingleFeatured(){
+	var debug = false;
+		
+	var features = self.eStructuralFeatures;
+	if(debug) (features.size==1).errln(self.name + " has single feature: ");
+	return (features.size==1);
+}
+
+//DEPRECATED
+operation EClass getEAnnotationsAsMap() : Map {
+	var map = new Map;
+	var debug = false;
+	
+			if(self.eAnnotations.isDefined()){
+				if(debug) self.eAnnotations.errln("PARAM ANNOTATIONS: ");
+				var orderedset = new OrderedSet;
+				for (annotation in self.eAnnotations) {
+					if(debug) annotation.errln("PARAM ANNOTATION: "); 
+					orderedset = annotation.details;
+	
+					for (elem in orderedset) {
+						if(debug)elem.errln("DETAIL: ");
+						if(debug)elem.key.errln("KEY: ");
+						if(debug)elem.value.errln("VALUE: ");
+						map.put(elem.key, elem.value);
+					}
+				}
+				
+				//Each matched input model element must have the same parameters map, without null values.
+				//If not, the template may not be invoked.
+				//We reuse the entity.name if a corresponding name annotation is undefined or empty. E.g., Documentroot
+				var name;
+				if(map.containsKey("name")){
+				    name = map.get("name");
+					name = name.replace(" ","_");
+					name = name.replace(":","");
+					if(not map.get("name").isDefined() or map.get("name") = ""){
+						name = self.name;
+						name = name.replace(" ","_");
+						name = name.replace(":","");	
+						map.put("name", name);
+					}
+				}
+				if(debug) map.errln("PARAMETERS MAP: ");
+			}
+			else{
+				if (debug)"entity.eAnnotations.isDefined() FALSE".errln();
+			}
+
+	return map;
+}
+

@@ -1,0 +1,228 @@
+import "../../egl/JAVA_templates/Ecore2GmModel/utils/utils.eol";
+import "../../egl/JAVA_templates/Ecore2GmModel/utils/EcoreUtil.eol";
+import "GenericGmCoreAnnotation.eol";
+
+
+//Generic Step
+GenericGmCoreAnnotation();
+fixAttributeNames();
+fixEnumerations();
+
+
+var debug = false;
+var debug2 = false;
+var debug3 = false;
+
+//6.1 Primitive Types Mappings - see https://www.hl7.org/fhir/datatypes.html#primitive 
+var fhirPrimitiveTypes2JavaTypesMapping : Map = FhirPrimitiveTypes2JavaTypesMapping();
+
+//var xsdEClass2PrimitiveBaseTypeMap : Map = XsdEClass2PrimitiveBaseTypeMap();
+
+
+/*
+Auxiliary variables for metrics
+*/
+var counter = 0;
+var eClassifiers : Sequence = EClassifier.all();
+var eClasses : Sequence = EClass.all();
+
+//Find eClassifiers and eStructuralFeatures whose annotation ignored=true has to be set to true
+for (classifier in eClassifiers) { 
+	
+	//STEP 1: Classifier that represents Fhir Primitive Types should be ignored, i.e. ignored=true
+	var isFhirPrimitiveType = fhirPrimitiveTypes2JavaTypesMapping.containsKey(classifier.name);
+	
+	if(isFhirPrimitiveType){
+				
+		classifier.getAnnotation("GmCore").details.put("ignored","true");
+		classifier.getAnnotation("GmCore").details.put(
+			"convertedToPrimitiveType",
+			fhirPrimitiveTypes2JavaTypesMapping.get(classifier.name).asString() 
+		);
+	
+	}
+
+	
+	var xsdEClass2PrimitiveObjectTypeMap : Map = XsdEClass2PrimitiveObjectTypeMap();
+	var isXsdDataTypeObject = xsdEClass2PrimitiveObjectTypeMap.containsValue(classifier.name);
+	
+	if(isXsdDataTypeObject){
+		if(debug) classifier.errln("isXsdDataTypeObject");
+		//annotation
+		classifier.getAnnotation("GmCore").details.put("ignored","true");
+	}
+	
+	
+	var isEnumObject = classifier.isEnumObject();
+	if(isEnumObject){
+		//annotation
+		classifier.getAnnotation("GmCore").details.put("ignored","true");
+	}
+	
+	//STEP 2: Find all the eStructuralFeatures whose eType belong to the eClassifiers that will be ignored, i.e. ignored=true
+	
+	if(classifier.isTypeOf(EClass)) {
+
+		var structuralfeatures = classifier.eStructuralFeatures;
+			
+		for (feature in structuralfeatures) { 
+
+			if(feature.isTypeOf(EReference)){
+				var referenceType = feature.getEReferenceType();
+				//STEP 2.1: check antipattern: 
+				//A: the type of the structural feature is a single featured type (TypeA::value) AND
+				//B: the type of the single feature is an EEnum (e.g. type of TypeA::value is of type EENum)
+				
+				//check A
+				if(referenceType.isSingleFeatured()){
+					
+					var singleFeatureType = referenceType.eStructuralFeatures.get(0).eType;
+					
+					//check B
+					if(singleFeatureType.isTypeOf(EEnum)){
+						
+						//A and B satisfied, antipattern detected
+						
+						if(debug2) singleFeatureType.errln("singleFeatureType.isTypeOf(EEnum): ");
+
+						//Fix 1. the EClassifier with a single feature that is a EENum is set to ignored
+						if(debug2) "Fix 1. the EClassifier with a single feature that is a EENum is set to ignored".errln();
+						referenceType.getAnnotation("GmCore").details.put("ignored","true");
+						
+						//Fix 2. the structural feature should be converted into EEnum. We save the EEnum type in a new metadata.
+						if(debug2) "Fix 2. set the link to the Enum that replaces this ignored EClass".errln();
+						referenceType.getAnnotation("GmCore").details.put("convertedToEEnum",referenceType.name);
+					}			
+					
+					if(singleFeatureType.isTypeOf(EDataType)){
+						if(debug2) singleFeatureType.errln("singleFeatureType.isTypeOf(EDataType): ");
+						
+						//Fix 1. the EClassifier with a single feature that is a EDataType is set to ignored
+						if(debug2) "Fix 1. the EClassifier with a single feature that is a EDataType is set to ignored".errln();
+						referenceType.getAnnotation("GmCore").details.put("ignored","true");
+						
+						//Fix 2. the structural feature should be converted into EDataType. We save the EDataType type in a new metadata.
+						if(debug2) "Fix 2. set the link to the TF-compatible primitive type that replaces this ignored EClass".errln();
+						var javaType = fhirPrimitiveTypes2JavaTypesMapping.get(singleFeatureType.name);
+						
+						if(debug2) javaType.errln("Fix 2. Java Type is: ");
+						referenceType.getAnnotation("GmCore").details.put("convertedToPrimitiveType",javaType);
+					}			
+				}
+			}				
+		}
+	}
+	
+	counter++;
+}
+
+var enabled = true;
+"Adding prefix to EClasses whose name contains Resource".errln();
+
+
+//STEP 3
+if(enabled){
+	for (eclass in eClasses) {
+    	if((eclass.name.contains("Resource")) 
+    		and (not eclass.name.startsWith("Fhir"))
+    	){
+    		if(debug3) eclass.errln();
+    		var counter = 1;
+			eclass.name = "Fhir"+ eclass.name;
+    		if(debug3) eclass.errln();
+			eclass.getAnnotation("GmCore").details.put("name",eclass.name);
+    	}
+    }
+}
+
+//STEP 4
+var enabled = true;
+"Adding annotation with alternative name for EENum whose name ends with *List".errln();
+
+
+if(enabled){
+	for (enum in EEnum.all.select(e|e.name.endsWith("List"))) {
+		if(debug) enum.name.errln();
+		if(not enum.isSelfAnnotatedAs("GmCore")){
+			enum.generateDefaultGmCoreAnnotation();
+		}
+		var newName = enum.name.substring(0,enum.name.length()-4);
+		enum.getAnnotation("GmCore").details.put("name",newName);
+		if(debug) newName.errln();
+    }
+}
+
+//STEP 5
+
+enabled = true;
+
+var currClass;
+var removedClasses: Sequence;
+var replacedClasses: Sequence;
+
+if(enabled){
+//Ignore Element EClass
+	currClass = eClasses.selectOne(e|e.name="Element");
+	if(currClass.isDefined()) currClass.ignoreElement();
+	if(currClass.isDefined()) removedClasses.add(currClass);
+//Ignore Extension EClass
+	currClass = eClasses.selectOne(e|e.name="Extension");
+	if(currClass.isDefined()) currClass.ignoreElement();
+	if(currClass.isDefined()) removedClasses.add(currClass);
+//Ignore DocumentRoot EClass
+	currClass = eClasses.selectOne(e|e.name="DocumentRoot");
+	if(currClass.isDefined()) currClass.ignoreElement();
+	if(currClass.isDefined()) removedClasses.add(currClass);
+//Ignore DocumentRoot EClass
+	currClass = eClasses.selectOne(e|e.name="Meta");
+	if(currClass.isDefined()) currClass.ignoreElement();
+	if(currClass.isDefined()) removedClasses.add(currClass);
+
+//Replace Reference EClass with GenericEntity
+	currClass = eClasses.selectOne(e|e.name="Reference");
+	if(currClass.isDefined()) currClass.ignoreElement();
+	if(currClass.isDefined()) currClass.getAnnotation("GmCore").details.put("replacedBy","com.braintribe.model.generic.GenericEntity");
+	if(currClass.isDefined()) replacedClasses.add(currClass);
+					
+						
+	for (eclass in removedClasses) { 
+		eclass.errln("Removed eClasses:");
+	}	
+	for (eclass in replacedClasses) { 
+		eclass.errln("Replaced eClasses:");
+	}	
+	
+//Ignore and/or Replace all features whose eType is ignored/replaced, respectively.
+"Remove and/or replace all estructuralfeatures that refer to the previous removed EClasses".errln();
+	var eStructuralFeatures = EStructuralFeature.all();
+	var ignoredEClass = EClass.all.select(e|e.getAnnotationValue('GmCore', 'ignored')="true");
+	for (feature in eStructuralFeatures) { 
+		//if the eType is removed, then we remove the eStructuralFeature itself
+		if(ignoredEClass.includes(feature.eType)){
+			feature.ignoreElement();
+		}	
+		if(replacedClasses.exists(e|e = feature.eType)){
+			if(debug3) feature.errln("Replaced: ");
+			if(debug3) feature.eType.name.errln("of eType: ");
+			feature.ignoreElement();
+			feature.getAnnotation("GmCore").details.put("replaceWithType","GenericEntity");
+		}	
+	}
+
+	"normalisation completed".errln();
+	"We ignored the following eClasses".errln();
+	for (elem in EClass.all) { 
+		var value =elem.getAnnotationValue('GmCore', 'ignored');
+		if(value="true") elem.errln();
+	}
+	"We ignored the following eDataTypes".errln();
+	for (elem in EDataType.all) { 
+		var value =elem.getAnnotationValue('GmCore', 'ignored');
+		if(value="true") elem.errln();
+	}
+	"We ignored the following eEnum".errln();
+	for (elem in EEnum.all) { 
+		var value =elem.getAnnotationValue('GmCore', 'ignored');
+		if(value="true") elem.errln();
+	}
+}

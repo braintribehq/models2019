@@ -1,0 +1,56 @@
+[%
+entity.name.errln();
+entity.definition.errln();
+
+var debug : Boolean = false;
+var emfTool = new Native("org.eclipse.epsilon.emc.emf.tools.EmfTool");
+var ecoreUtil = emfTool.ecoreUtil;
+
+
+var package_string = "com.braintribe.di.iso20022.erepository.model";
+var supertype_string = "";
+
+
+//mappings
+var entity_name = entity.name;
+var description = entity.definition;
+%]
+/*
+Auto-generated code via model transformation (Eclipse Epsilon EGL/EGX).
+Task: Cartridge Development - Data Model generation
+This Java source artifact defines the Data Type [%=entity_name%] of the eRepositorty ISO20022 Data Model .
+
+Author: Luca Berardinelli
+Tool: Eclipse Epsilon
+*/
+
+package [%=package_string%];
+
+
+import java.util.List;
+
+import com.braintribe.model.generic.GenericEntity;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+import com.braintribe.model.generic.annotation.meta.*;
+/**
+ * @author luca.berardinelli
+ */
+
+/**
+ * [%=entity_name%] 
+ */
+@Description("[%=description%]")
+public interface [%=entity_name%] extends GenericEntity [%= supertype_string%] {
+
+	EntityType<[%=entity_name%]> T = EntityTypes.T([%=entity_name%].class);
+
+	/* Constants for each property name. */
+[%
+ //add list of properties and property names
+
+%]
+[%
+ //getters and setters for GmEntityType properties
+%]
+}

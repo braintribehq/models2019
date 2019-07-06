@@ -1,0 +1,73 @@
+import "../../eol/utilities/utilities.eol";
+
+
+rule BusinessComponent2GmEntityType
+	transform entity : BusinessComponent {
+			
+		template : "../../egl/JAVA_templates/iso20022/BusinessComponent2GmEntityType.egl"
+		target : "../../../output/ISO20022-erepository/com/braintribe/di/iso20022/erepository/businesscomponents/model/" + entity.name + ".java"
+	}
+
+rule BusinessAttribute2GmEntityType
+	transform entity : BusinessAttribute {
+			
+		template : "../../egl/JAVA_templates/iso20022/BusinessAttribute2GmEntityType.egl"
+		target : "../../../output/ISO20022-erepository/com/braintribe/di/iso20022/erepository/businessattributes/"+ entity.elementContext.name.toLowerCase() + "/model/" + entity.name + ".java"
+	}
+	
+rule BusinessAssociation2GmEntityType
+	transform entity : BusinessAssociationEnd {
+			
+		template : "../../egl/JAVA_templates/iso20022/BusinessAssociationEnd2GmEntityType.egl"
+		target : "../../../output/ISO20022-erepository/com/braintribe/di/iso20022/erepository/businessassociationends/"+ entity.elementContext.name.toLowerCase() + "/model/" + entity.name + ".java"
+	}
+/*	
+rule MessageComponent2GmEntityType
+	transform entity : MessageComponent {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/MessageComponents/" + entity.name + ".java"
+	}
+/*	
+rule ChoiceComponent2GmEntityType
+	transform entity : ChoiceComponent {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/ChoiceComponents/" + entity.name + ".java"
+	}
+	
+rule MessageSet2GmEntityType
+	transform entity : MessageSet {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/MessageSets/" + entity.name + ".java"
+	}
+	
+rule BusinessArea2GmEntityType
+	transform entity : BusinessArea {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/BusinessAreas/" + entity.name + ".java"
+	}
+
+rule MessageDefinition2GmEntityType
+	transform entity : MessageDefinition {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/MessageDefinitions/" + entity.name + ".java"
+	}
+	
+rule BusinessProcess2GmEntityType
+	transform entity : MessageDefinition {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/BusinessProcesses/" + entity.name + ".java"
+	}
+	
+rule BusinessRole2GmEntityType
+	transform entity : MessageDefinition {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelEntity2GmEntityType.egl"
+		target : "../../../output/iso20022/BusinessRoles/" + entity.name + ".java"
+	}
+*/	

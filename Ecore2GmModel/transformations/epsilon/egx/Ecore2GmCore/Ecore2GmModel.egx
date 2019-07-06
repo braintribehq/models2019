@@ -1,0 +1,57 @@
+import "../../eol/utilities/utilities.eol";
+import "../../egl/Java_templates/Ecore2GmModel/utils/utils.eol";
+import "../../egl/Java_templates/Ecore2GmModel/utils/EcoreUtil.eol";
+
+rule EClass2GmEntityTypeJava	
+	transform entity : EClass {	
+	
+		guard {
+			var a = entity.isAnnotatedAs("GmCore");
+			var b = entity.getAnnotationValue("GmCore", "ignored");
+			if(not a.isDefined()) return true;
+			if(not b.isDefined()) return true;			
+			var result = (a and (b="false"));
+			return result;
+		}
+		
+		template : "../../egl/JAVA_templates/Ecore2GmModel/DataModeling/EClass2GmEntityType.egl"
+		target : "../../../output/dataModels/"+getFullPath(entity).replace("\\s|\\.","/")+"/" + entity.getAnnotationValue("GmCore", "name") +".java"
+	}
+
+
+
+rule EDataType2GmEntityTypeJava	
+	transform entity : EDataType {
+		guard {
+			var a = entity.isAnnotatedAs("GmCore");
+			var b = entity.getAnnotationValue("GmCore", "ignored");
+			if(not a.isDefined()) return true;
+			if(not b.isDefined()) return true;			
+
+			var result = (a and (b="false"));
+			return result;
+		}
+			
+		template : "../../egl/JAVA_templates/Ecore2GmModel/DataModeling/EDataType2GmEntityType.egl"
+		target : "../../../output/dataModels/"+getFullPath(entity).replace("\\s|\\.","/")+"/" + entity.getAnnotationValue("GmCore", "name") +".java"
+	}
+
+
+
+rule EEnum2GmEnumTypeJava	
+
+	transform enum : EEnum {
+		guard {
+			var a = enum.isAnnotatedAs("GmCore");
+			var b = enum.getAnnotationValue("GmCore", "ignored");
+			if(not a.isDefined()) return true;
+			if(not b.isDefined()) return true;			
+
+			var result = (a and (b="false"));
+			return result;
+		}
+
+		template : "../../egl/JAVA_templates/Ecore2GmModel/DataModeling/EEnum2GmEnumType.egl"
+		target : "../../../output/dataModels/"+getFullPath(enum).replace("\\s|\\.","/")+"/" + enum.getAnnotationValue("GmCore", "name") + ".java"
+	}
+

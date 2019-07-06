@@ -1,0 +1,54 @@
+import "../../egl/JAVA_templates/Ecore2GmModel/utils/utils.eol";
+import "../../egl/JAVA_templates/Ecore2GmModel/utils/EcoreUtil.eol";
+
+
+GenericGmCoreAnnotation();
+fixAttributeNames();
+fixEnumerations();
+
+operation GenericGmCoreAnnotation(){
+
+var debug = false;
+var debug2 = true;
+var debug3 = true;
+
+//1. collect all the model elements
+var eModelElements : Sequence = EModelElement.all;
+var eNamedElements : Sequence = ENamedElement.all;
+//2. remove existing annotations/metadata from the previous collection of all model elements
+var eModelElementsNoAnnotations = eModelElements.excludingAll(eModelElements.select(e|e.isTypeOf(EAnnotation)));
+
+//3. add a new metadata to all the remaining model elements
+for (elem in eModelElementsNoAnnotations) { 
+	//if(debug) elem.errln();
+	if(not elem.isSelfAnnotatedAs("GmCore")){
+		elem.generateDefaultGmCoreAnnotation();
+	}
+}
+
+//4. collect all the eClassfiers that will be transformed into EntityType and EnumType in TF
+var eClassifiers : Sequence = EClassifier.all();
+
+//5. collect all the eClass that will be transformed into EntityType in TF 
+var eClasses : Sequence = EClass.all();
+
+//6. Sanitize all the strings in annotations
+var eAnnotations = EAnnotation.all;
+for (annotation in eAnnotations) { 
+	annotation.errln();
+	var details = annotation.getDetails();
+	for (detail in details) { 
+		detail.errln();
+		var value = detail.value.replace("\r", "");
+		value = value.replace("\n", "");
+		value = value.replace("\"", "'");
+		//detail.put(detail.key.asString(), value.asString());
+		//detail.key.errln();
+		//detail.value.errln();
+		detail.value = value;
+		
+	}
+}
+"Generic GmCore annotation completed".errln();
+}
+

@@ -1,0 +1,9 @@
+import "../../eol/utilities/utilities.eol";
+
+
+rule Repository2Metrics
+	transform repository : Repository {
+			
+		template : "../../egl/JAVA_templates/iso20022/ModelMetrics.egl"
+		target : "../../../output/iso20022/metrics/metrics.txt"
+	}
