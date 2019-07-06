@@ -56,8 +56,6 @@ The output is generated in Ecore2GmModel/transformations/output/iso20022 folder.
 
 ### Case Study 3 
 HL7 FHIR Fast Healthcare Interoperability Resources (FHIR®, pronounced "fire") is a next generation standards framework that leverages the latest web standards and applies a tight focus on implementation and was developed by healthcare standards developing organization, Health Level Seven International (HL7).
-
-HL7 FHIR Fast Healthcare Interoperability Resources (FHIR®, pronounced "fire") is a next generation standards framework that leverages the latest web standards and applies a tight focus on implementation and was developed by healthcare standards developing organization, Health Level Seven International (HL7).
 The fhir.ecore model is obtained from the XSD specification publicly available [here](https://www.hl7.org/fhir/downloads.html).
 It has been converted in Ecore thanks to the built-in [XSD2Ecore transformation](https://www.eclipse.org/modeling/emf/docs/overviews/XMLSchemaToEcoreMapping.pdf). The output is not optimised and many antipatterns should be removed. The antipattern detection is performed by Ecore2GmModel/transformations/epsilon/eol/Step1Annotation/FhirSpecificGmCoreAnnotations.eol, a specialisation of Ecore2GmModel/transformations/epsilon/eol/Step1Annotation/GenericGmCoreAnnotation.eol.
 
