@@ -14,7 +14,7 @@ The additional links are grouped following the roadmap of the submitted paper.
 ### Tribefire By Example
 ### Related Work
 
-# Ecore2GmModel Prototype
+# Ecore2GmModel Transformation Prototype
 The Ecore2GmModel Prototype is a model transformation implemented in by a combination of [EOL]((https://www.eclipse.org/epsilon/doc/eol/)), [EGL](https://www.eclipse.org/epsilon/doc/egl/) and [EGX](https://www.eclipse.org/epsilon/doc/egx/) specifications, three DSLs provided by the [Eclipse Epsilon](https://www.eclipse.org/epsilon/) framework. 
 EOL is an imperative programming language for creating, querying and modifying EMF models. 
 EGL is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGX is a rule-based language for coordinating the execution of EGL templates.
