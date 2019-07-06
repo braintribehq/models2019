@@ -1,9 +1,0 @@
-import "../../eol/utilities/utilities.eol";
-
-
-rule EPackage2Metrics
-	transform package : EPackage {
-			
-		template : "../../egl/EOL_templates/EcoreMetrics.egl"
-		target : "../../../output/ecore/metrics/metrics.eol"
-	}
