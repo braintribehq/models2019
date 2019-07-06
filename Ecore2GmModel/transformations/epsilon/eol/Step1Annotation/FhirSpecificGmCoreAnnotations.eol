@@ -117,7 +117,7 @@ for (classifier in eClassifiers) {
 }
 
 var enabled = true;
-"Adding prefix to EClasses whose name contains Resource".errln();
+if(debug)"Adding prefix to EClasses whose name contains Resource".errln();
 
 
 //STEP 3
@@ -137,7 +137,7 @@ if(enabled){
 
 //STEP 4
 var enabled = true;
-"Adding annotation with alternative name for EENum whose name ends with *List".errln();
+if(debug)"Adding annotation with alternative name for EENum whose name ends with *List".errln();
 
 
 if(enabled){
@@ -186,14 +186,14 @@ if(enabled){
 					
 						
 	for (eclass in removedClasses) { 
-		eclass.errln("Removed eClasses:");
+		if(debug)eclass.errln("Removed eClasses:");
 	}	
 	for (eclass in replacedClasses) { 
-		eclass.errln("Replaced eClasses:");
+		if(debug)eclass.errln("Replaced eClasses:");
 	}	
 	
 //Ignore and/or Replace all features whose eType is ignored/replaced, respectively.
-"Remove and/or replace all estructuralfeatures that refer to the previous removed EClasses".errln();
+if(debug)"Remove and/or replace all estructuralfeatures that refer to the previous removed EClasses".errln();
 	var eStructuralFeatures = EStructuralFeature.all();
 	var ignoredEClass = EClass.all.select(e|e.getAnnotationValue('GmCore', 'ignored')="true");
 	for (feature in eStructuralFeatures) { 
@@ -209,20 +209,20 @@ if(enabled){
 		}	
 	}
 
-	"normalisation completed".errln();
-	"We ignored the following eClasses".errln();
+	"Fhir-specific annotationn completed".errln();
+	if(debug)"We ignored the following eClasses".errln();
 	for (elem in EClass.all) { 
 		var value =elem.getAnnotationValue('GmCore', 'ignored');
-		if(value="true") elem.errln();
+		if(value="true" and debug) elem.errln();
 	}
-	"We ignored the following eDataTypes".errln();
+	if(debug)"We ignored the following eDataTypes".errln();
 	for (elem in EDataType.all) { 
 		var value =elem.getAnnotationValue('GmCore', 'ignored');
-		if(value="true") elem.errln();
+		if(value="true" and debug) elem.errln();
 	}
-	"We ignored the following eEnum".errln();
+	if(debug)"We ignored the following eEnum".errln();
 	for (elem in EEnum.all) { 
 		var value =elem.getAnnotationValue('GmCore', 'ignored');
-		if(value="true") elem.errln();
+		if(value="true" and debug) elem.errln();
 	}
 }

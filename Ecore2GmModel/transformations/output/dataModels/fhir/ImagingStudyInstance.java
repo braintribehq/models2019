@@ -1,0 +1,45 @@
+/*
+Auto-generated code via model transformation (Eclipse Epsilon EGL/EGX).
+Task: Cartridge Development - Data Model generation
+This Java source artifact defines the Data Type ImagingStudyInstance of the Data Model fhir.
+The resulting Data Model 
+- has to be imported as servlet in your TribeFire server (Data Model are bundled within a .war file), 
+- has to be detected and syncronized in the TribeFire::ControlCenter
+As a result, a Business Model (or simply Model) should be visible throung the TribeFire:Modeler.
+
+Author: Luca Berardinelli
+Tool: Eclipse Epsilon
+*/
+
+package fhir;
+
+import com.braintribe.model.generic.GenericEntity;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+import com.braintribe.model.generic.annotation.*;
+import com.braintribe.model.generic.annotation.meta.*;
+
+/**
+ * 
+ * It consists of then following properties
+{@link sopClass}, 
+
+* It provides of then following operations (getters and setters)
+{@link getSopClass},
+{@link setSopClass},
+ */
+
+@Description("Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.")
+
+public interface ImagingStudyInstance extends GenericEntity, fhir.BackboneElement {
+
+	EntityType<ImagingStudyInstance> T = EntityTypes.T(ImagingStudyInstance.class);
+
+	/* Constants for each property name. */
+	java.lang.String sopClass = "sopClass";
+
+	@Description("DICOM instance  type.")
+	@Mandatory
+	fhir.Coding getSopClass();
+	void setSopClass(fhir.Coding sopClass);
+}

@@ -164,10 +164,11 @@ operation fixAttributeNames(){
 }
 
 operation fixDataTypes(){
+	var debug = false;
 	var eDataTypes = EDataType.all();
 	for (edatatype in eDataTypes) { 
-		edatatype.errln();
-		edatatype.instanceClassName.errln();
+		if(debug)edatatype.errln();
+		if(debug)edatatype.instanceClassName.errln();
 		edatatype.name = edatatype.name.replace("\\s","");		
 		if(not edatatype.instanceClassName.isDefined()){
 			edatatype.instanceClassName = "java.lang.String";
@@ -177,10 +178,12 @@ operation fixDataTypes(){
 }
 
 operation checkEntityTypedStructuralFeature(){
+	var debug = false;
+
 	var eDataTypes = EDataType.all();
 	for (edatatype in eDataTypes) { 
-		edatatype.errln();
-		edatatype.instanceClassName.errln();
+		if(debug)edatatype.errln();
+		if(debug)edatatype.instanceClassName.errln();
 		edatatype.name = edatatype.name.replace("\\s","");		
 		if(not edatatype.instanceClassName.isDefined()){
 			edatatype.instanceClassName = "java.lang.String";
@@ -190,10 +193,11 @@ operation checkEntityTypedStructuralFeature(){
 }
 
 operation fixEnumerations(){
+	var debug = false;
 	var eenums = EEnum.all();
 	for (eenum in eenums) { 
-		eenum.errln();
-		var eliterals = eenum.eLiterals.errln();
+		if(debug) eenum.errln();
+		var eliterals = eenum.eLiterals;
 		for (eliteral in eliterals) { 
 			eliteral.name = eliteral.name.replace("\\s","_");
 			eliteral.name = eliteral.name.replace("-","_");
@@ -255,8 +259,7 @@ These refactoring actions are model-specific and cannot be generalized at the mo
 Further investigation needed.
 */
 operation EModelElement ignoreElement(){
-	var debug = true;
-	//if(debug) self.isSelfAnnotatedAs("GmCore").errln("self.isSelfAnnotatedAs(GmCore)");
+	var debug = false;
 	if(not self.isSelfAnnotatedAs("GmCore")) return;
 	if(self.isTypeOf(EClass)){
 		self.getAnnotation("GmCore").details.put("ignored","true");
