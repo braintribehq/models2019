@@ -29,10 +29,22 @@ The annotations are required and used by the second step to optimise the transfo
 
 The generated Java APIs can be used during the Modeling and Implementation activities of the Cortex Engineering Process outlined in the paper. In particular, the outout of the model transformation is classified as a [Model Priming asset](https://documentation.tribefire.com/tribefire.cortex.documentation/concepts-doc/features/platform_assets.html?searchText=ModelPrimings).
 
-
 The transformation have been tested in many proof-of-value case studies. The output of all case studies is a set of Java Model APIs representing Data Models to be used as part of a DDSA-based extension of Tribefire (see paper for further details).
 
 In order to execute the transformation, the latest version of the [Eclipse Epsilon framework] (https://www.eclipse.org/epsilon/download/) have to installed in Eclipse (preferred installation package [Eclipse Modeling Tools](https://www.eclipse.org/downloads/packages/))
+
+## Case Studies
+All case studies can be displayed in Tribefire via Datapedia, an internal assets (including data assets) repository developed at Braintribe.
+To access Datapedia as guest users:
+- Go to [Datapedia](https://datapedia.tribefire.cloud/#/signin)
+- Access as Guest User with read only access (username: DisimUser, password: disim).  
+- Click on Model Assets. 
+- Click on asseet of your choice.
+- A new informative page is displayed. On the top menu click on Versions.
+- An IFrame will be opened showing a Tribefire Model within a running Tribefire platform (with limited functionalities)
+- The chosen model can be inspected.
+
+Here below, we outline three running case studies where the Ecore2GmModel transformation generated the Model APIs that, once installed in Tribeifre, are parsed and generate the the corresponding in-memory representation that are finally shown in the graph-based graphical models editor.
 
 ### Case Study 1
 Db.ecore is a simple Ecore Model defining the generic structure of a DB in Ecore. 
