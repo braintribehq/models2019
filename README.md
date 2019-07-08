@@ -7,31 +7,41 @@ It includes:
   - Prototype of a Ecore2GmModel transformation.
 
 # Additional Links
-The additional links are grouped following the roadmap of the submitted paper.
+A deep dive into the Cortex approach and Tribefire tool is possible via the [Tribefire Academy Portal](https://academy.tribefire.com/). It includes two sections, Training and Documentation, that are freely accessible.
+In [Training](https://academy.tribefire.com/training/), the user is guided through the setup of a [Tribefire Virtual Machine] (https://academy.tribefire.com/license-agreement/)
+Sets of videos/slides/exercises are available for 
+  - [**Technical Base Course**](https://academy.tribefire.com/tribefire-tech-basics-course/).
+  - **Front-End Development** via [Tribefire REST API](https://academy.tribefire.com/rest-api-v2/) (https://academy.tribefire.com/tribefire-tech-basics-course/) and [Tribefire JavaScript API](https://academy.tribefire.com/tribefirejs-introduction/)
+  - **Tribefire Extension** via [Java API](https://academy.tribefire.com/tribefire-java-api/)
+  
+For convenience, [**Downloads**] are collected in a single page [here](https://academy.tribefire.com/downloads/)
 
-### Introduction
-### Cortex Approach
-### Tribefire By Example
-### Related Work
+The reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
+It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be the understandable despite the technicisms of the platform.
+
 
 # Ecore2GmModel Transformation Prototype
 The Ecore2GmModel Prototype is a model transformation implemented in by a combination of [EOL]((https://www.eclipse.org/epsilon/doc/eol/)), [EGL](https://www.eclipse.org/epsilon/doc/egl/) and [EGX](https://www.eclipse.org/epsilon/doc/egx/) specifications, three DSLs provided by the [Eclipse Epsilon](https://www.eclipse.org/epsilon/) framework. 
-EOL is an imperative programming language for creating, querying and modifying EMF models. 
-EGL is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. EGX is a rule-based language for coordinating the execution of EGL templates.
+**EOL** is an imperative programming language for creating, querying and modifying EMF models. 
+**EGL** is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. 
+**EGX** is a rule-based language for coordinating the execution of EGL templates.
 
-The transformation take a single input (.ecore) and generates multiple outputs, i.e., Java Interfaces representing a Data Model (data-model) in the Cortex Modeling Space (see paper for further details).
+The transformation take a **single input (.ecore)** and generates **multiple outputs**, i.e., **Java Interfaces** representing a Data Model (data-model) in the Cortex Modeling Space (see paper for further details).
 
-Ecore2GmModel is performed in two steps. 
+**Ecore2GmModel is performed in two steps**. 
+**Step 1. Annotation.** 
 The first step adds a set of  [eAnnotations](https://download.eclipse.org/modeling/emf/emf/javadoc/2.9.0/org/eclipse/emf/ecore/EAnnotation.html) (namely GmCore) to Ecore model elements. 
+
+**Step 2. Transformation.** 
 The annotations are required and used by the second step to optimise the transformation process, by enabling: 
 - Deletion or Replacement of EClasses and, then, update of EStructutalFeatures typed by the involved EClasses (via GmCore::ignored and GmCore::replaceBy eAnnotations). 
 - Replacement of Ecore PrimitiveTypes with Tribefire [Simple Types](https://documentation.tribefire.com/javadoc/index.html) (via GmCore::replaceBy eAnnotations). 
 
 The generated Java APIs can be used during the Modeling and Implementation activities of the Cortex Engineering Process outlined in the paper. In particular, the outout of the model transformation is classified as a [Model Priming asset](https://documentation.tribefire.com/tribefire.cortex.documentation/concepts-doc/features/platform_assets.html?searchText=ModelPrimings).
 
-The transformation have been tested in many proof-of-value case studies. The output of all case studies is a set of Java Model APIs representing Data Models to be used as part of a DDSA-based extension of Tribefire (see paper for further details).
+**The transformation have been tested in many proof-of-value case studies**. The output of all case studies is a set of Java Model APIs representing Data Models to be used as part of a DDSA-based extension of Tribefire (see paper for further details).
 
-In order to execute the transformation, the latest version of the [Eclipse Epsilon framework] (https://www.eclipse.org/epsilon/download/) have to installed in Eclipse (preferred installation package [Eclipse Modeling Tools](https://www.eclipse.org/downloads/packages/))
+
 
 ## Case Studies
 All case studies can be displayed in Tribefire via Datapedia, an internal assets (including data assets) repository developed at Braintribe.
@@ -45,6 +55,9 @@ To access Datapedia as guest users:
 - The chosen model can be inspected.
 
 Here below, we outline three running case studies where the Ecore2GmModel transformation generated the Model APIs that, once installed in Tribeifre, are parsed and generate the the corresponding in-memory representation that are finally shown in the graph-based graphical models editor.
+
+### Install Epsilon 
+In order to execute the transformations of the case studies, the latest version of the [Eclipse Epsilon framework] (https://www.eclipse.org/epsilon/download/) have to installed in Eclipse (preferred installation package [Eclipse Modeling Tools](https://www.eclipse.org/downloads/packages/))
 
 ### Case Study 1
 Db.ecore is a simple Ecore Model defining the generic structure of a DB in Ecore. 
