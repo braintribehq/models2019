@@ -1,7 +1,7 @@
 # IMPORTANT FOR MODELS2019 REVIEWERS
 
 Reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
-It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be the understandable despite the technicisms of the platform.
+It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be understandable despite the technicisms of the platform.
 
 
 # Tribefire: a Platform for Platforms driven by Normalised Models
