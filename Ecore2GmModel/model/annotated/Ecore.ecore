@@ -1,0 +1,2341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ecore" nsURI="http://www.eclipse.org/emf/2002/Ecore" nsPrefix="ecore">
+  <eAnnotations source="GmCore">
+    <details key="ignored" value="false"/>
+    <details key="name" value="ecore"/>
+    <details key="convertedToEEnum" value=""/>
+    <details key="convertedToPrimitiveType" value=""/>
+    <details key="convertedToEClass" value=""/>
+    <details key="convertedToEDataType" value=""/>
+    <details key="replacedBy" value=""/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="EAttribute" eSuperTypes="#//EStructuralFeature">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ConsistentTransient"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EAttribute"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iD" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="iD"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAttributeType" lowerBound="1"
+        eType="#//EDataType" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAttributeType"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EAnnotation" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="WellFormedSourceURI"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EAnnotation"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="source"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="details" upperBound="-1"
+        eType="#//EStringToStringMapEntry" containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="details"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eModelElement" eType="#//EModelElement"
+        transient="true" resolveProxies="false" eOpposite="#//EModelElement/eAnnotations">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eModelElement"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//EObject" containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="contents"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//EObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="references"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass" eSuperTypes="#//EClassifier">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="InterfaceIsAbstract AtMostOneID UniqueFeatureNames UniqueOperationSignatures NoCircularSuperTypes WellFormedMapEntryClass ConsistentSuperTypes DisjointFeatureAndOperationSignatures"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EClass"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="isSuperTypeOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="isSuperTypeOf"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="someClass" eType="#//EClass">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="someClass"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getFeatureCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getFeatureCount"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getEStructuralFeature" eType="#//EStructuralFeature">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEStructuralFeature"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="featureID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="featureID"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getFeatureID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getFeatureID"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getEStructuralFeature" eType="#//EStructuralFeature">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEStructuralFeature"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="featureName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="featureName"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="abstract"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="interface"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eSuperTypes" upperBound="-1"
+        eType="#//EClass" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eSuperTypes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eOperations" upperBound="-1"
+        eType="#//EOperation" containment="true" resolveProxies="false" eOpposite="#//EOperation/eContainingClass">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eOperations"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllAttributes" upperBound="-1"
+        eType="#//EAttribute" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllAttributes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllReferences" upperBound="-1"
+        eType="#//EReference" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllReferences"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReferences" upperBound="-1"
+        eType="#//EReference" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eReferences"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAttributes" upperBound="-1"
+        eType="#//EAttribute" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAttributes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllContainments" upperBound="-1"
+        eType="#//EReference" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllContainments"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllOperations" upperBound="-1"
+        eType="#//EOperation" changeable="false" volatile="true" transient="true"
+        derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllOperations"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllStructuralFeatures"
+        upperBound="-1" eType="#//EStructuralFeature" changeable="false" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllStructuralFeatures"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllSuperTypes" upperBound="-1"
+        eType="#//EClass" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllSuperTypes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eIDAttribute" eType="#//EAttribute"
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eIDAttribute"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eStructuralFeatures" upperBound="-1"
+        eType="#//EStructuralFeature" containment="true" resolveProxies="false" eOpposite="#//EStructuralFeature/eContainingClass">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eStructuralFeatures"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eGenericSuperTypes" upperBound="-1"
+        eType="#//EGenericType" unsettable="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eGenericSuperTypes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAllGenericSuperTypes"
+        upperBound="-1" eType="#//EGenericType" changeable="false" volatile="true"
+        transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllGenericSuperTypes"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClassifier" abstract="true" eSuperTypes="#//ENamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="WellFormedInstanceTypeName UniqueTypeParameterNames"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EClassifier"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="isInstance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="isInstance"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="object" eType="#//EJavaObject">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="object"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getClassifierID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getClassifierID"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="instanceClassName"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceClass" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="instanceClass"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="#//EJavaObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="defaultValue"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instanceTypeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        volatile="true" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="instanceTypeName"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ePackage" eType="#//EPackage"
+        changeable="false" transient="true" eOpposite="#//EPackage/eClassifiers">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="ePackage"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eTypeParameters" upperBound="-1"
+        eType="#//ETypeParameter" containment="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eTypeParameters"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EDataType" eSuperTypes="#//EClassifier">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EDataType"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serializable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="serializable"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EEnum" eSuperTypes="#//EDataType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniqueEnumeratorNames UniqueEnumeratorLiterals"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EEnum"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="getEEnumLiteral" eType="#//EEnumLiteral">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEEnumLiteral"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="name"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getEEnumLiteral" eType="#//EEnumLiteral">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEEnumLiteral"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="value"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getEEnumLiteralByLiteral" eType="#//EEnumLiteral">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEEnumLiteralByLiteral"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="literal"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eLiterals" upperBound="-1"
+        eType="#//EEnumLiteral" containment="true" resolveProxies="false" eOpposite="#//EEnumLiteral/eEnum">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eLiterals"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EEnumLiteral" eSuperTypes="#//ENamedElement">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EEnumLiteral"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="value"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="instance" eType="#//EEnumerator"
+        transient="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="instance"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="literal"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eEnum" eType="#//EEnum"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//EEnum/eLiterals">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eEnum"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EFactory" eSuperTypes="#//EModelElement">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EFactory"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="create" eType="#//EObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="create"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="eClass" eType="#//EClass">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="eClass"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="createFromString" eType="#//EJavaObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="createFromString"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="eDataType" eType="#//EDataType">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="eDataType"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="literalValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="literalValue"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="convertToString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="convertToString"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="eDataType" eType="#//EDataType">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="eDataType"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="instanceValue" eType="#//EJavaObject">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="instanceValue"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ePackage" lowerBound="1"
+        eType="#//EPackage" transient="true" resolveProxies="false" eOpposite="#//EPackage/eFactoryInstance">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="ePackage"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EModelElement" abstract="true" eSuperTypes="#//EObject">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EModelElement"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="getEAnnotation" eType="#//EAnnotation">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEAnnotation"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="source"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eAnnotations" upperBound="-1"
+        eType="#//EAnnotation" containment="true" resolveProxies="false" eOpposite="#//EAnnotation/eModelElement">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAnnotations"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ENamedElement" abstract="true" eSuperTypes="#//EModelElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="WellFormedName"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ENamedElement"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="name"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EObject">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="eClass" eType="#//EClass">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eClass"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eIsProxy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eIsProxy"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eResource" eType="#//EResource">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eResource"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eContainer" eType="#//EObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContainer"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eContainingFeature" eType="#//EStructuralFeature">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContainingFeature"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eContainmentFeature" eType="#//EReference">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContainmentFeature"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="eContents">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContents"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//EEList">
+        <eTypeArguments eClassifier="#//EObject"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="eAllContents">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eAllContents"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//ETreeIterator">
+        <eTypeArguments eClassifier="#//EObject"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="eCrossReferences">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eCrossReferences"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//EEList">
+        <eTypeArguments eClassifier="#//EObject"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="eGet" eType="#//EJavaObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eGet"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="eGet" eType="#//EJavaObject">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eGet"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="resolve" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="resolve"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="eSet">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eSet"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+      <eParameters name="newValue" eType="#//EJavaObject">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="newValue"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="eIsSet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eIsSet"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eOperations name="eUnset">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eUnset"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="feature" eType="#//EStructuralFeature">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="feature"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EOperation" eSuperTypes="#//ETypedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniqueParameterNames UniqueTypeParameterNames NoRepeatingVoid"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EOperation"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eContainingClass" eType="#//EClass"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//EClass/eOperations">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContainingClass"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eTypeParameters" upperBound="-1"
+        eType="#//ETypeParameter" containment="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eTypeParameters"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eParameters" upperBound="-1"
+        eType="#//EParameter" containment="true" resolveProxies="false" eOpposite="#//EParameter/eOperation">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eParameters"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eExceptions" upperBound="-1"
+        eType="#//EClassifier" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eExceptions"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eGenericExceptions" upperBound="-1"
+        eType="#//EGenericType" unsettable="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eGenericExceptions"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EPackage" eSuperTypes="#//ENamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="WellFormedNsURI WellFormedNsPrefix UniqueSubpackageNames UniqueClassifierNames UniqueNsURIs"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EPackage"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="getEClassifier" eType="#//EClassifier">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getEClassifier"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eParameters name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="GmCore">
+          <details key="ignored" value="false"/>
+          <details key="name" value="name"/>
+          <details key="convertedToEEnum" value=""/>
+          <details key="convertedToPrimitiveType" value=""/>
+          <details key="convertedToEClass" value=""/>
+          <details key="convertedToEDataType" value=""/>
+          <details key="replacedBy" value=""/>
+        </eAnnotations>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="nsURI"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nsPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="nsPrefix"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eFactoryInstance" lowerBound="1"
+        eType="#//EFactory" transient="true" resolveProxies="false" eOpposite="#//EFactory/ePackage">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eFactoryInstance"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eClassifiers" upperBound="-1"
+        eType="#//EClassifier" containment="true" eOpposite="#//EClassifier/ePackage">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eClassifiers"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eSubpackages" upperBound="-1"
+        eType="#//EPackage" containment="true" eOpposite="#//EPackage/eSuperPackage">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eSubpackages"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eSuperPackage" eType="#//EPackage"
+        changeable="false" transient="true" eOpposite="#//EPackage/eSubpackages">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eSuperPackage"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EParameter" eSuperTypes="#//ETypedElement">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EParameter"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eOperation" eType="#//EOperation"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//EOperation/eParameters">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eOperation"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EReference" eSuperTypes="#//EStructuralFeature">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ConsistentOpposite SingleContainer ConsistentKeys"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EReference"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="containment"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="container" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="container"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolveProxies" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="resolveProxies"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eOpposite" eType="#//EReference">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eOpposite"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eReferenceType" lowerBound="1"
+        eType="#//EClass" changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eReferenceType"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eKeys" upperBound="-1"
+        eType="#//EAttribute">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eKeys"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStructuralFeature" abstract="true"
+      eSuperTypes="#//ETypedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidDefaultValueLiteral"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EStructuralFeature"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eOperations name="getFeatureID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getFeatureID"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getContainerClass">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="getContainerClass"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+      <eGenericType eClassifier="#//EJavaClass">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="changeable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="changeable"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="volatile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="volatile"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="transient"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValueLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="defaultValueLiteral"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="#//EJavaObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="defaultValue"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unsettable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="unsettable"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="derived"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eContainingClass" eType="#//EClass"
+        changeable="false" transient="true" resolveProxies="false" eOpposite="#//EClass/eStructuralFeatures">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eContainingClass"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETypedElement" abstract="true" eSuperTypes="#//ENamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidLowerBound ValidUpperBound ConsistentBounds ValidType"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ETypedElement"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="ordered"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="unique"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="lowerBound"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upperBound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="upperBound"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="many"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="required"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eType" eType="#//EClassifier"
+        volatile="true" unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eType"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eGenericType" eType="#//EGenericType"
+        volatile="true" unsettable="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eGenericType"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBigDecimal" instanceClassName="java.math.BigDecimal">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EBigDecimal"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBigInteger" instanceClassName="java.math.BigInteger">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#integer"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EBigInteger"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBoolean" instanceClassName="boolean">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EBoolean"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EBooleanObject" instanceClassName="java.lang.Boolean">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EBoolean"/>
+      <details key="name" value="EBoolean:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EBooleanObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EByte" instanceClassName="byte">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#byte"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EByte"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EByteArray" instanceClassName="byte[]">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#hexBinary"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EByteArray"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EByteObject" instanceClassName="java.lang.Byte">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EByte"/>
+      <details key="name" value="EByte:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EByteObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EChar" instanceClassName="char">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EChar"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ECharacterObject" instanceClassName="java.lang.Character">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EChar"/>
+      <details key="name" value="EChar:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ECharacterObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDate" instanceClassName="java.util.Date">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EDate"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDiagnosticChain" instanceClassName="org.eclipse.emf.common.util.DiagnosticChain"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EDiagnosticChain"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDouble" instanceClassName="double">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#double"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EDouble"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDoubleObject" instanceClassName="java.lang.Double">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EDouble"/>
+      <details key="name" value="EDouble:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EDoubleObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EEList" instanceClassName="org.eclipse.emf.common.util.EList"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EEList"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eTypeParameters name="E">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="E"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EEnumerator" instanceClassName="org.eclipse.emf.common.util.Enumerator"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EEnumerator"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EFeatureMap" instanceClassName="org.eclipse.emf.ecore.util.FeatureMap"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EFeatureMap"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EFeatureMapEntry" instanceClassName="org.eclipse.emf.ecore.util.FeatureMap$Entry"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EFeatureMapEntry"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EFloat" instanceClassName="float">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#float"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EFloat"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EFloatObject" instanceClassName="java.lang.Float">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EFloat"/>
+      <details key="name" value="EFloat:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EFloatObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EInt" instanceClassName="int">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#int"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EInt"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EIntegerObject" instanceClassName="java.lang.Integer">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EInt"/>
+      <details key="name" value="EInt:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EIntegerObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EJavaClass" instanceClassName="java.lang.Class">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EJavaClass"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eTypeParameters name="T">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="T"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EJavaObject" instanceClassName="java.lang.Object">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EJavaObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ELong" instanceClassName="long">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#long"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ELong"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ELongObject" instanceClassName="java.lang.Long">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="ELong"/>
+      <details key="name" value="ELong:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ELongObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EMap" instanceClassName="java.util.Map"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EMap"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eTypeParameters name="K">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="K"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eTypeParameters>
+    <eTypeParameters name="V">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="V"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EResource" instanceClassName="org.eclipse.emf.ecore.resource.Resource"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EResource"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EResourceSet"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EShort" instanceClassName="short">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#short"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EShort"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EShortObject" instanceClassName="java.lang.Short">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="EShort"/>
+      <details key="name" value="EShort:Object"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EShortObject"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EString" instanceClassName="java.lang.String">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="baseType" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EString"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EStringToStringMapEntry" instanceClassName="java.util.Map$Entry">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EStringToStringMapEntry"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="key"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="value"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="ETreeIterator" instanceClassName="org.eclipse.emf.common.util.TreeIterator"
+      serializable="false">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ETreeIterator"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eTypeParameters name="E">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="E"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eTypeParameters>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EGenericType" eSuperTypes="#//EObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ConsistentType ConsistentBounds ConsistentArguments"/>
+    </eAnnotations>
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="EGenericType"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eUpperBound" eType="#//EGenericType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eUpperBound"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eTypeArguments" upperBound="-1"
+        eType="#//EGenericType" containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eTypeArguments"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eRawType" lowerBound="1"
+        eType="#//EClassifier" changeable="false" transient="true" derived="true">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eRawType"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eLowerBound" eType="#//EGenericType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eLowerBound"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eTypeParameter" eType="#//ETypeParameter"
+        resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eTypeParameter"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eClassifier" eType="#//EClassifier">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eClassifier"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ETypeParameter" eSuperTypes="#//ENamedElement">
+    <eAnnotations source="GmCore">
+      <details key="ignored" value="false"/>
+      <details key="name" value="ETypeParameter"/>
+      <details key="convertedToEEnum" value=""/>
+      <details key="convertedToPrimitiveType" value=""/>
+      <details key="convertedToEClass" value=""/>
+      <details key="convertedToEDataType" value=""/>
+      <details key="replacedBy" value=""/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eBounds" upperBound="-1"
+        eType="#//EGenericType" containment="true" resolveProxies="false">
+      <eAnnotations source="GmCore">
+        <details key="ignored" value="false"/>
+        <details key="name" value="eBounds"/>
+        <details key="convertedToEEnum" value=""/>
+        <details key="convertedToPrimitiveType" value=""/>
+        <details key="convertedToEClass" value=""/>
+        <details key="convertedToEDataType" value=""/>
+        <details key="replacedBy" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>
