@@ -1,5 +1,9 @@
 # Tribefire: a Platform for Platforms driven by Normalised Models
 
+
+![alt text](https://github.com/braintribehq/models2019/blob/master/Documents/fig-tf-architecture2.png)
+Figure 1. The DDSA-based architecture of Tribefire.
+
 This is a companion public git repository of the tool demo paper submitted to Models 2019.
 It includes:
 
@@ -26,7 +30,7 @@ The Ecore2GmModel Prototype is a model transformation implemented in by a combin
 **EGL** is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. 
 **EGX** is a rule-based language for coordinating the execution of EGL templates.
 
-The transformation take a **single input (.ecore)** and generates **multiple outputs**, i.e., **Java Interfaces** representing a Data Model (data-model) in the Cortex Modeling Space (see paper for further details).
+The transformation take a **single input (.ecore)** and generates **multiple outputs**, i.e., **Java Interfaces** representing a Data Model (data-model, see Figure 1) in the Cortex Modeling Space (see paper for further details).
 
 **Ecore2GmModel is performed in two steps**. 
 **Step 1. Annotation.** 
