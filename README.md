@@ -16,12 +16,12 @@ Sets of videos/slides/exercises are available for
   
 For convenience, [**Downloads**] are collected in a single page [here](https://academy.tribefire.com/downloads/)
 
-The reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
+Reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
 It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be the understandable despite the technicisms of the platform.
 
 
 # Ecore2GmModel Transformation Prototype
-The Ecore2GmModel Prototype is a model transformation implemented in by a combination of [EOL]((https://www.eclipse.org/epsilon/doc/eol/)), [EGL](https://www.eclipse.org/epsilon/doc/egl/) and [EGX](https://www.eclipse.org/epsilon/doc/egx/) specifications, three DSLs provided by the [Eclipse Epsilon](https://www.eclipse.org/epsilon/) framework. 
+The Ecore2GmModel Prototype is a model transformation implemented in by a combination of [EOL](https://www.eclipse.org/epsilon/doc/eol/), [EGL](https://www.eclipse.org/epsilon/doc/egl/) and [EGX](https://www.eclipse.org/epsilon/doc/egx/) specifications, three DSLs provided by the [Eclipse Epsilon](https://www.eclipse.org/epsilon/) framework. 
 **EOL** is an imperative programming language for creating, querying and modifying EMF models. 
 **EGL** is a template-based model-to-text language for generating code, documentation and other textual artefacts from models. 
 **EGX** is a rule-based language for coordinating the execution of EGL templates.
