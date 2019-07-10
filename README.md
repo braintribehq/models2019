@@ -23,7 +23,6 @@ For convenience, [**Downloads**] are collected in a single page [here](https://a
 
 in [Documentation](https://documentation.tribefire.com/), you can find detailed written explanations about TF, its features, and its cloud-based deployment. The implementation of the case study in Figure 1 is available [here](https://documentation.tribefire.com/tribefire.extension.demo/tribefire-demo-cartridge-doc/ddsa_employeesbygender.html?searchText=employee%20by%20gender).
 
-<span style="background-color: yellow;">Article</span>
 Reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
 It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be the understandable despite the technicisms of the platform.
 
