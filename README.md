@@ -12,13 +12,17 @@ It includes:
 
 # Additional Links
 A deep dive into the Cortex approach and Tribefire tool is possible via the [Tribefire Academy Portal](https://academy.tribefire.com/). It includes two sections, Training and Documentation, that are freely accessible.
+
 In [Training](https://academy.tribefire.com/training/), the user is guided through the setup of a [Tribefire Virtual Machine] (https://academy.tribefire.com/license-agreement/)
 Sets of videos/slides/exercises are available for 
   - [**Technical Base Course**](https://academy.tribefire.com/tribefire-tech-basics-course/).
   - **Front-End Development** via [Tribefire REST API](https://academy.tribefire.com/rest-api-v2/) (https://academy.tribefire.com/tribefire-tech-basics-course/) and [Tribefire JavaScript API](https://academy.tribefire.com/tribefirejs-introduction/)
-  - **Tribefire Extension** via [Java API](https://academy.tribefire.com/tribefire-java-api/)
-  
+  - **Tribefire Extension** via [Java API](https://academy.tribefire.com/tribefire-java-api/) 
 For convenience, [**Downloads**] are collected in a single page [here](https://academy.tribefire.com/downloads/)
+
+
+in [Documentation](https://documentation.tribefire.com/), you can find detailed written explanations about TF, its features, and its cloud-based deployment. The implementation of the case study in Figure 1 is available [here](https://documentation.tribefire.com/tribefire.extension.demo/tribefire-demo-cartridge-doc/ddsa_employeesbygender.html?searchText=employee%20by%20gender).
+
 
 Reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
 It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) should be the understandable despite the technicisms of the platform.
