@@ -45,6 +45,11 @@ The generated Java APIs can be used during the Modeling and Implementation activ
 
 ## Case Studies
 All case studies can be displayed in Tribefire via Datapedia, an internal assets (including data assets) repository developed at Braintribe.
+
+![alt text](https://github.com/braintribehq/models2019/blob/master/Documents/academic%20workspace.png)
+
+
+
 To access Datapedia as guest users:
 - Go to [Datapedia](https://datapedia.tribefire.cloud/#/signin)
 - Access as Guest User with read only access (username: DisimUser, password: disim).  
