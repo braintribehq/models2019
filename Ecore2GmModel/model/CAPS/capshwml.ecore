@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="CAPShwml" nsURI="filesystem" nsPrefix="filesystem">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeElement" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NodeSpecification" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.node">
+      <details key="border.width" value="2"/>
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="name,OS,macProtocol,routingProtocol"/>
+      <details key="label.pattern" value="{0} - OS: {1}, mac: {2}, routing: {3}"/>
+      <details key="label.icon" value="true"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/Node.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/Node.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OS" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="middleware" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="macProtocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="routingProtocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transportProtocol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energySources" lowerBound="1"
+        upperBound="-1" eType="#//EnergySource" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
+        eType="#//Sensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actuators" upperBound="-1"
+        eType="#//Actuator" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cctvcameras" upperBound="-1"
+        eType="#//CCTVcamera" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vibrationSensors" upperBound="-1"
+        eType="#//VibrationSensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RfidReaders" upperBound="-1"
+        eType="#//RfidReader" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="SmartCardReaders" upperBound="-1"
+        eType="#//SmartCardReader" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OccupancySensors" upperBound="-1"
+        eType="#//OccupancySensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InductiveSensors" upperBound="-1"
+        eType="#//InductiveSensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HumiditySensors" upperBound="-1"
+        eType="#//HumiditySensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GlassBreakageDetectors"
+        upperBound="-1" eType="#//GlassBreakageDetector" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TemperatureSensor" upperBound="-1"
+        eType="#//TemperatureSensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AmbientLightSensor" upperBound="-1"
+        eType="#//AmbientLightSensor" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GasSmokeDetectors" upperBound="-1"
+        eType="#//GasSmokeDetector" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PeopleCounters" upperBound="-1"
+        eType="#//PeopleCounter" containment="true">
+      <eAnnotations source="gmf.affixed">
+        <details key="foo" value="bar"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modes" upperBound="-1"
+        eType="#//PowerMode" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="microcontroller" lowerBound="1"
+        eType="#//Microcontroller" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="free"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalMemories" upperBound="-1"
+        eType="#//Memory" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rFCommunicationDevices"
+        upperBound="-1" eType="#//RFCommunicationDevice" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Microcontroller" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.node">
+      <details key="size" value="240,180"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="label" value="name"/>
+      <details key="label.icon" value="true"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/Microcontroller.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/Microcontroller.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processors" lowerBound="1"
+        upperBound="-1" eType="#//Processor" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adcs" upperBound="-1" eType="#//ADC"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dacs" upperBound="-1" eType="#//DAC"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timers" lowerBound="1"
+        upperBound="-1" eType="#//Timer" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="memory" lowerBound="1"
+        eType="#//VolatileMemory" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="programMemory" lowerBound="1"
+        eType="#//StorageMemory" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storageMemory" lowerBound="1"
+        eType="#//StorageMemory" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transceiver" eType="#//RFCommunicationDevice"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Processor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="label" value="name,frequency,cpi"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="label.pattern" value="{0} - {1} Mhz, CPI: {2}"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/Processor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/Processor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cpi" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ADC" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="label" value="name"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/ADC.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/ADC.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="channels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DAC" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="label" value="name"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/DAC.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/DAC.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="channels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timer" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="label" value="name"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/Timer.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/Timer.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Memory" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="label" value="name,size"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="label.pattern" value="{0} - {1} Kb"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/Memory.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/Memory.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageReadingEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageWritingEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageMemory" eSuperTypes="#//Memory">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//StorageMemoryType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VolatileMemory" eSuperTypes="#//Memory"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="StorageMemoryType">
+    <eLiterals name="configuration"/>
+    <eLiterals name="program" value="1"/>
+    <eLiterals name="archive" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergySource" abstract="true" eSuperTypes="#//NodeElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HarvestedEnergySource" eSuperTypes="#//DegradableEnergySource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="harvestingEnergyRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DegradableEnergySource" eSuperTypes="#//EnergySource">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.width" value="2"/>
+      <details key="size" value="200,28"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="label" value="name,initialStoredEnergy"/>
+      <details key="label.pattern" value="{0} - {1} J"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="true"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/DegradableEnergySource.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/DegradableEnergySource.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialStoredEnergy" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContinuousEnergySource" eSuperTypes="#//EnergySource">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="border.width" value="2"/>
+      <details key="size" value="200,28"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="internal"/>
+      <details key="label.icon" value="true"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/ContinuousEnergySource.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/ContinuousEnergySource.gif"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RFCommunicationDevice" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="color" value="220,220,220"/>
+      <details key="size" value="180,28"/>
+      <details key="label" value="name,frequency"/>
+      <details key="border.color" value="220,220,220"/>
+      <details key="label.pattern" value="{0} - {1} MhZ"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/RFCommunicationDevice.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/RFCommunicationDevice.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transmissionPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="receiveSensitivity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="antennaGain" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modulation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="encryption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.SenseFigure"/>
+      <details key="size" value="28,28"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/Sense.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/Sense.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.ActuateFigure"/>
+      <details key="size" value="28,28"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/Actuate.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/Actuate.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerAction"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VibrationSensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.VibrationSensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/VibrationSensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/VibrationSensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RfidReader" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.RfidReaderFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/RFIDreader.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/RFIDreader.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SmartCardReader" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.SmartCardReaderFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/SmartCardReader.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/SmartCardReader.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OccupancySensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.OccupancySensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/OccupancySensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/OccupancySensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InductiveSensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.InductiveSensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/InductiveSensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/InductiveSensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HumiditySensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.HumiditySensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="margin" value="0"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/HumiditySensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/HumiditySensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GlassBreakageDetector" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.GlassBreakageDetectorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/GlassBreakageDetector.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/GlassBreakageDetector.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemperatureSensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.TemperatureSensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/TemperatureSensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/TemperatureSensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Range" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Accuracy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Resolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Linearity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Calibration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Drift" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Scanfreq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ambtemp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Control" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Levels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="XDimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="YDimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ZDimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AmbientLightSensor" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.AmbientLightSensorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/AmbientLightSensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/AmbientLightSensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GasSmokeDetector" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.GasSmokeDetectorFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/SmokeSensor.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/SmokeSensor.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PeopleCounter" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.PeopleCounterFigure"/>
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/PeopleCounter.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/PeopleCounter.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CCTVcamera" eSuperTypes="#//NodeElement">
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="figures.CCTVCameraFigure"/>
+      <details key="size" value="28,28"/>
+      <details key="label" value="name"/>
+      <details key="label.placement" value="external"/>
+      <details key="label.icon" value="false"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/sa/CCTV.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/sa/CCTV.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ImageSensorType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Luminance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Daynight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FrameRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Resolution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FocalLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ViewAngle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Compression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PixelsOnTarget" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PTZ" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FOVwidt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyConsumptionPerSample"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idleEnergyConsumption"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PowerMode" eSuperTypes="#//NamedElement">
+    <eAnnotations source="gmf.node">
+      <details key="size" value="120,28"/>
+      <details key="label" value="name"/>
+      <details key="border.color" value="0,0,0"/>
+      <details key="border.style" value="dash"/>
+      <details key="tool.small.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.small.path" value="icons/node/PowerMode.gif"/>
+      <details key="tool.large.bundle" value="it.univaq.wsn.figures"/>
+      <details key="tool.large.path" value="icons/node/PowerMode.gif"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="disabled" upperBound="-1"
+        eType="#//NodeElement"/>
+  </eClassifiers>
+</ecore:EPackage>
