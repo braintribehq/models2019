@@ -14,12 +14,14 @@ The latest video is available [here](https://drive.google.com/open?id=1OZN9rvvDh
 This is a companion public git repository of the tool demo paper submitted to Models 2019.
 It includes:
 
+  - Additional links to Tribefire Academy and Documentation portals
+  - Prototype of a Ecore2GmModel transformation.
+  
 ![alt text](https://github.com/braintribehq/models2019/blob/master/Documents/fig-tf-architecture2.png)
 Figure 1. The DDSA-based architecture of Tribefire.
 
-
-  - Additional links to Tribefire Academy and Documentation portals
-  - Prototype of a Ecore2GmModel transformation.
+![alt text](https://github.com/braintribehq/models2019/blob/master/Documents/fig-process.png)
+Figure 2. The Cortex Engineering Process (CEP) where the Tribefire platform is customised to build new platforms.
 
 # Additional Links
 A deep dive into the Cortex approach and Tribefire tool is possible via the [Tribefire Academy Portal](https://academy.tribefire.com/). It includes two sections, Training and Documentation, that are freely accessible.
