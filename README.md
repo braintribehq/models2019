@@ -7,7 +7,7 @@ It describes the extension of TF given by the **tribefire demo (cartridge) descr
 
 We are working on a **new set of videos** about Tribefire and its new (advanced) [features](https://documentation.tribefire.com/tribefire.cortex.documentation/concepts-doc/features.html), that we left out from the paper due to space limitation.
 
-The latest video is available [here](https://drive.google.com/open?id=1f_NhUJY6FAIrHUGQ7Pb4QxPb4hMsNSjC) and its explanation is currently available as PDF document [Demo 2019](https://github.com/braintribehq/models2019/blob/master/Documents/). The final version of this demo video will include the audio track and will be part of the [training offer](https://academy.tribefire.com/training/) and will be made available on YouTube. 
+The latest video is available [here](https://drive.google.com/open?id=1OZN9rvvDhRTc2e9kz7kNqTvhDA_f9hwW) and its explanation is currently available as PDF document [Demo 2019](https://github.com/braintribehq/models2019/blob/master/Documents/). The final version of this demo video will include the audio track and will be part of the [training offer](https://academy.tribefire.com/training/) and will be made available on YouTube. 
 
 
 # Tribefire: a Platform for Platforms driven by Normalised Models
