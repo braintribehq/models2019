@@ -1,15 +1,3 @@
-# IMPORTANT FOR MODELS2019 REVIEWERS
-
-The Tribefire documentation is continuously updated and freely available (no fees, no registration) to users, including a fully [working virtual machine](https://academy.tribefire.com/training/).
-
-Reading the submitted paper should act as a very quick summary about Cortex and Tribefire. **The video on [Extending The Platform](https://academy.tribefire.com/extending-tribefire-overview/) is the last one of the technical base course**. 
-It describes the extension of TF given by the **tribefire demo (cartridge) described in the paper** (including models, expert, and configuration via wires) and should be understandable despite the technicisms of the platform.
-
-We are working on a **new set of videos** about Tribefire and its new (advanced) [features](https://documentation.tribefire.com/tribefire.cortex.documentation/concepts-doc/features.html), that we left out from the paper due to space limitation.
-
-The latest video is available [here](https://drive.google.com/open?id=1OZN9rvvDhRTc2e9kz7kNqTvhDA_f9hwW) and its explanation is currently available as PDF document [Demo 2019](https://github.com/braintribehq/models2019/blob/master/Documents/). The final version of this demo video will include the audio track and will be part of the [training offer](https://academy.tribefire.com/training/) and will be made available on YouTube. 
-
-
 # Tribefire: a Platform for Platforms driven by Normalised Models
 This is a companion public git repository of the tool demo paper submitted to Models 2019.
 It includes:
